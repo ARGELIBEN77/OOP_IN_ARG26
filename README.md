@@ -9,6 +9,7 @@ course projects can be added later.
 | Project | Main topics | Start here |
 |---|---|---|
 | Generic Sorted Catalog | Class templates, custom iterators, generic algorithms, functors, and lambdas | [Open the project](Generic_Sorted_Catalog_Project/README.md) |
+| Inheritance and Polymorphism Media Library | Inheritance, abstract classes, overriding, runtime polymorphism, and virtual destructors | [Open the project](Inheritance_Polymorphism_Media_Library/README.md) |
 
 ## How to use this repository
 
