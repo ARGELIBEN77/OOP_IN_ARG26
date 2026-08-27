@@ -8,18 +8,114 @@ stores objects in the order defined by a comparison policy. The same container
 can therefore order `Song` objects by title, duration, artist, or another rule
 without changing the container implementation.
 
-## Learning objectives
+## What the program demonstrates
 
-After studying the project, students should be able to:
+The demonstration creates the same collection of songs in two catalogs:
 
-- explain the roles of `T` and `Compare` in a class template;
-- identify the operations required from a comparison policy;
-- explain the iterator range `[begin, end)`;
-- implement dereference, arrow, increment, and comparison operators;
-- explain how a range-based `for` loop uses an iterator;
-- pass functors and lambdas to generic algorithms;
-- explain lambda captures and `decltype(lambda)`;
-- use a custom iterator with a standard-library algorithm.
+- one catalog is ordered by title using a named comparison functor;
+- another is ordered by artist and title using a lambda.
+
+It then traverses the catalogs with a range-based loop and an explicit
+iterator, and processes them with both custom and standard generic algorithms.
+
+## Before you begin
+
+You need:
+
+- a C++ compiler supporting C++17, such as `g++`;
+- `make` for the short build commands;
+- a terminal opened in the cloned repository.
+
+On Ubuntu or WSL, the compiler and Make can be installed with:
+
+```bash
+sudo apt update
+sudo apt install build-essential
+```
+
+## Quick start
+
+Clone the repository only once:
+
+```bash
+git clone https://github.com/ARGELIBEN77/OOP_IN_ARG26.git
+cd OOP_IN_ARG26/Generic_Sorted_Catalog_Project
+```
+
+Compile and run the demonstration:
+
+```bash
+make run
+```
+
+Compile and run the tests:
+
+```bash
+make test
+```
+
+Remove generated executables when finished:
+
+```bash
+make clean
+```
+
+**Important:** run these commands from inside
+`Generic_Sorted_Catalog_Project`, where the `Makefile` is located.
+
+If the project was already cloned, update it before starting:
+
+```bash
+cd OOP_IN_ARG26
+git pull
+cd Generic_Sorted_Catalog_Project
+make run
+```
+
+## If Make is not available
+
+From inside the project directory, compile directly:
+
+```bash
+mkdir -p bin
+g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude \
+    src/main.cpp src/Song.cpp -o bin/sorted_catalog_demo
+./bin/sorted_catalog_demo
+```
+
+Compile and run the tests directly:
+
+```bash
+g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude \
+    tests/test_sorted_catalog.cpp src/Song.cpp -o bin/sorted_catalog_tests
+./bin/sorted_catalog_tests
+```
+
+## What should happen?
+
+The demonstration should print:
+
+1. songs ordered alphabetically by title;
+2. the first song longer than 240 seconds;
+3. the number of songs by U2;
+4. messages showing every song being played;
+5. songs ordered by artist and then title;
+6. explicit iterator traversal;
+7. the result of `std::count_if`.
+
+The test command should finish with a success message and no assertion failure.
+
+## Recommended reading order
+
+Do not begin with the template container. Build the idea gradually:
+
+1. `include/Song.hpp` and `src/Song.cpp` — the ordinary domain class.
+2. `include/SongFunctors.hpp` — named comparison and predicate objects.
+3. `src/main.cpp` — see how the catalog is used.
+4. `include/Algorithms.hpp` — small generic algorithms using iterator ranges.
+5. `include/SortedCatalog.hpp` — the container template and its iterator.
+6. `tests/test_sorted_catalog.cpp` — examples of expected behavior.
+7. `EXERCISES.md` — guided student tasks.
 
 ## Project structure
 
@@ -33,41 +129,42 @@ Generic_Sorted_Catalog_Project/
 ├── src/
 │   ├── Song.cpp
 │   └── main.cpp             Demonstrations with functors and lambdas
-├── EXERCISES.md
-├── Makefile
+├── tests/
+│   └── test_sorted_catalog.cpp
+├── EXERCISES.md             Guided learning activities
+├── Makefile                 Build, run, test, and clean commands
 └── README.md
 ```
 
 Template implementations are placed in header files because the compiler must
 see their complete definitions when it instantiates them for a particular type.
 
-## Build and run
+## Learning objectives
 
-```bash
-make
-make run
-make test
-```
+After studying the project, students should be able to:
 
-Or compile directly:
+- explain the roles of `T` and `Compare` in a class template;
+- identify the operations required from a comparison policy;
+- explain the iterator range `[begin, end)`;
+- implement dereference, arrow, increment, and comparison operators;
+- explain how a range-based `for` loop uses an iterator;
+- pass functors and lambdas to generic algorithms;
+- explain lambda captures and `decltype(lambda)`;
+- use a custom iterator with a standard-library algorithm.
 
-```bash
-g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude \
-    src/main.cpp src/Song.cpp -o sorted_catalog_demo
-./sorted_catalog_demo
-```
+## Suggested classroom sequence
 
-## Suggested teaching sequence
-
-1. Examine `Song` and verify that it contains no generic-programming code.
-2. Instantiate `SortedCatalog<Song, CompareSongByTitle>`.
-3. Trace `add` and observe how `Compare` controls `std::lower_bound`.
-4. Trace an explicit iterator loop.
-5. Translate that loop into a range-based `for` loop.
-6. Use a predicate functor with `teaching::countIf`.
-7. replace the functor with a lambda.
-8. Use the custom iterator with `std::count_if`.
-9. Construct a second catalog whose comparator is a lambda.
+1. Run the program before reading its implementation.
+2. Examine `Song` and verify that it contains no generic-programming code.
+3. Instantiate `SortedCatalog<Song, CompareSongByTitle>`.
+4. Trace `add` and observe how `Compare` controls `std::lower_bound`.
+5. Trace an explicit iterator loop.
+6. Translate that loop into a range-based `for` loop.
+7. Use a predicate functor with `teaching::countIf`.
+8. Replace the functor with a lambda.
+9. Use the custom iterator with `std::count_if`.
+10. Construct a second catalog whose comparator is a lambda.
+11. Continue with the tasks in `EXERCISES.md`.
 
 ## Important design decision
 
@@ -84,7 +181,7 @@ new invariant and interface: every insertion preserves an ordering policy.
 ## Iterator invalidation
 
 An iterator should not be kept while the catalog is modified. `add`, `remove`,
-and `clear` may invalidate existing iterators because `std::vector` may move or
-shift its elements. Obtain new `begin()` and `end()` iterators after a modifying
-operation. This is part of an iterator's behavioral contract, not merely an
-implementation detail.
+and `clear` may invalidate existing iterators because `std::vector` may move
+or shift its elements. Obtain new `begin()` and `end()` iterators after a
+modifying operation. This is part of an iterator's behavioral contract, not
+merely an implementation detail.
