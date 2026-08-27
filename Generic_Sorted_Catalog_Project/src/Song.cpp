@@ -4,42 +4,42 @@
 #include <stdexcept>
 #include <utility>
 
-Song::Song(std::string title, std::string artist, int durationSeconds)
-    : title_(std::move(title)),
-      artist_(std::move(artist)),
-      durationSeconds_(durationSeconds)
+Song::Song(std::string songTitle, std::string songArtist, int songDuration)
+    : title(std::move(songTitle)),
+      artist(std::move(songArtist)),
+      durationSeconds(songDuration)
 {
-    if (title_.empty())
+    if (title.empty())
         throw std::invalid_argument("Song title must not be empty");
 
-    if (durationSeconds_ <= 0)
+    if (durationSeconds <= 0)
         throw std::invalid_argument("Song duration must be positive");
 }
 
 const std::string& Song::getTitle() const
 {
-    return title_;
+    return title;
 }
 
 const std::string& Song::getArtist() const
 {
-    return artist_;
+    return artist;
 }
 
 int Song::getDurationSeconds() const
 {
-    return durationSeconds_;
+    return durationSeconds;
 }
 
 void Song::play() const
 {
-    std::cout << "Playing: " << title_ << " by " << artist_ << '\n';
+    std::cout << "Playing: " << title << " by " << artist << '\n';
 }
 
-std::ostream& operator<<(std::ostream& out, const Song& song)
+std::ostream& operator<<(std::ostream& output, const Song& song)
 {
-    out << song.getTitle()
-        << " | " << song.getArtist()
-        << " | " << song.getDurationSeconds() << " seconds";
-    return out;
+    output << song.getTitle()
+           << " | " << song.getArtist()
+           << " | " << song.getDurationSeconds() << " seconds";
+    return output;
 }

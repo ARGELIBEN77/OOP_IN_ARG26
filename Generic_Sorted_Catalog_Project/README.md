@@ -169,6 +169,14 @@ After studying the project, students should be able to:
 9. Construct a second catalog whose comparator is a lambda.
 10. Continue with the tasks in `EXERCISES.md`.
 
+## Code style used in this project
+
+The examples use descriptive camelCase names. Data members do not use trailing
+underscores: for example, the catalog stores `items` and `compare`, and the
+iterator stores `current`. Comments focus on the purpose of templates,
+iterators, comparison policies, and generic algorithms rather than repeating
+obvious C++ syntax.
+
 ## Important design decision
 
 The iterator provides `const T&`, even for a non-const catalog. This is

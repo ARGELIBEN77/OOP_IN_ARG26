@@ -11,6 +11,8 @@ namespace
 {
 SortedCatalog<Song, CompareSongByTitle> makeCatalog()
 {
+    // Insert deliberately unsorted data. Each test receives a fresh catalog
+    // whose add operation must restore title order.
     SortedCatalog<Song, CompareSongByTitle> catalog(CompareSongByTitle{});
     catalog.add(Song("One", "U2", 217));
     catalog.add(Song("Imagine", "John Lennon", 183));
@@ -33,6 +35,8 @@ void testIteratorTraversal()
     const auto catalog = makeCatalog();
     std::string titles;
 
+    // This explicit loop tests the four basic iterator operations used in the
+    // lesson: begin/end, comparison, arrow, and prefix increment.
     for (auto iterator = catalog.begin(); iterator != catalog.end(); ++iterator)
         titles += iterator->getTitle() + ";";
 
@@ -47,6 +51,8 @@ void testGenericAlgorithms()
         catalog.begin(), catalog.end(), ArtistIs("U2"));
     assert(u2Count == 2);
 
+    // The algorithm accepts a lambda without knowing that the elements are
+    // Songs or that the iterators came from SortedCatalog.
     const auto found = teaching::findFirst(
         catalog.begin(),
         catalog.end(),
@@ -73,6 +79,7 @@ void testEquivalentRemoval()
 
 void testEmptyRange()
 {
+    // For an empty container, begin and end must represent the same position.
     const SortedCatalog<Song, CompareSongByTitle> empty(CompareSongByTitle{});
     assert(empty.begin() == empty.end());
     assert(empty.empty());

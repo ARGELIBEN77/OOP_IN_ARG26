@@ -17,14 +17,19 @@ template <typename T, typename Compare>
 class SortedCatalog
 {
 private:
-    std::vector<T> items_;
-    Compare compare_;
+    // The vector owns the actual objects. Clients do not access it directly,
+    // because every insertion must preserve the catalog's sorted order.
+    std::vector<T> items;
+
+    // The comparison object is part of the catalog's type and state. It may be
+    // a named functor or a lambda supplied when the catalog is constructed.
+    Compare compare;
 
     // Two elements are equivalent when neither is ordered before the other.
     // This is the standard equivalence rule used by ordered containers.
     bool equivalent(const T& first, const T& second) const
     {
-        return !compare_(first, second) && !compare_(second, first);
+        return !compare(first, second) && !compare(second, first);
     }
 
 public:
@@ -36,10 +41,12 @@ public:
     class Iterator
     {
     private:
-        const T* current_;
+        // current points to the element represented by this iterator. end()
+        // uses a pointer one position past the final element.
+        const T* current;
 
-        explicit Iterator(const T* current)
-            : current_(current)
+        explicit Iterator(const T* position)
+            : current(position)
         {
         }
 
@@ -48,30 +55,30 @@ public:
 
     public:
         Iterator()
-            : current_(nullptr)
+            : current(nullptr)
         {
         }
 
         const T& operator*() const
         {
-            return *current_;
+            return *current;
         }
 
         const T* operator->() const
         {
-            return current_;
+            return current;
         }
 
         // Prefix increment: advance first and then return this iterator.
         Iterator& operator++()
         {
-            ++current_;
+            ++current;
             return *this;
         }
 
         bool operator==(const Iterator& other) const
         {
-            return current_ == other.current_;
+            return current == other.current;
         }
 
         bool operator!=(const Iterator& other) const
@@ -82,8 +89,8 @@ public:
 
     // The comparison policy is stored inside the container. This permits a
     // stateful functor or a capturing lambda to control the ordering.
-    explicit SortedCatalog(Compare compare)
-        : compare_(std::move(compare))
+    explicit SortedCatalog(Compare comparison)
+        : compare(std::move(comparison))
     {
     }
 
@@ -93,63 +100,68 @@ public:
     void add(T value)
     {
         auto position = std::lower_bound(
-            items_.begin(), items_.end(), value, compare_);
+            items.begin(), items.end(), value, compare);
 
-        items_.insert(position, std::move(value));
+        items.insert(position, std::move(value));
     }
 
+    // Search for an element that is equivalent according to Compare. This is
+    // not necessarily the same as calling operator== on T.
     bool containsEquivalent(const T& value) const
     {
         auto position = std::lower_bound(
-            items_.begin(), items_.end(), value, compare_);
+            items.begin(), items.end(), value, compare);
 
-        return position != items_.end() && equivalent(*position, value);
+        return position != items.end() && equivalent(*position, value);
     }
 
+    // Remove the first equivalent element and report whether one was found.
     bool removeFirstEquivalent(const T& value)
     {
         auto position = std::lower_bound(
-            items_.begin(), items_.end(), value, compare_);
+            items.begin(), items.end(), value, compare);
 
-        if (position == items_.end() || !equivalent(*position, value))
+        if (position == items.end() || !equivalent(*position, value))
             return false;
 
-        items_.erase(position);
+        items.erase(position);
         return true;
     }
 
     std::size_t size() const
     {
-        return items_.size();
+        return items.size();
     }
 
     bool empty() const
     {
-        return items_.empty();
+        return items.empty();
     }
 
     const T& at(std::size_t index) const
     {
-        return items_.at(index);
+        return items.at(index);
     }
 
     void clear()
     {
-        items_.clear();
+        items.clear();
     }
 
     Iterator begin() const
     {
-        return Iterator(items_.data());
+        // begin() represents the first element. In an empty vector, data()
+        // and the value used by end() are the same, so begin() == end().
+        return Iterator(items.data());
     }
 
     Iterator end() const
     {
         // Avoid pointer arithmetic on a null data pointer in an empty vector.
-        if (items_.empty())
-            return Iterator(items_.data());
+        if (items.empty())
+            return Iterator(items.data());
 
-        return Iterator(items_.data() + items_.size());
+        return Iterator(items.data() + items.size());
     }
 };
 

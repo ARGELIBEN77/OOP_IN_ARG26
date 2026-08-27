@@ -14,7 +14,7 @@ Answer:
 
 1. What type replaces `T`?
 2. What type replaces `Compare`?
-3. What expression is executed by `compare_(first, second)`?
+3. What expression is executed by `compare(first, second)`?
 4. Why must the implementation of `SortedCatalog` be visible in the header?
 
 ## 2. Trace insertion
