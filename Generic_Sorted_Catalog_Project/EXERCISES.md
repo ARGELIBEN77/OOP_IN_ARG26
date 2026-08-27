@@ -28,8 +28,8 @@ each call to `add`, draw the vector and mark the insertion position returned by
 Temporarily remove the bodies of these operations and implement them again:
 
 ```cpp
-reference operator*() const;
-pointer operator->() const;
+const T& operator*() const;
+const T* operator->() const;
 Iterator& operator++();
 bool operator!=(const Iterator& other) const;
 ```
@@ -70,13 +70,17 @@ bool anyOf(Iterator first, Iterator last, Predicate predicate);
 Test it with a lambda that checks whether the catalog contains a Song by a
 specified artist.
 
-## 8. Standard algorithm comparison
+## 8. Trace a generic algorithm
 
-Compare your `teaching::findFirst` with `std::find_if`:
+Trace `teaching::findFirst` for a catalog containing three Songs. Use a
+predicate that accepts Songs longer than 200 seconds. For each loop iteration,
+record:
 
-- What iterator operations do both algorithms require?
-- Does either algorithm know that the iterator came from `SortedCatalog`?
-- Can the same predicate be passed to both?
+- the Song referred to by `first`;
+- the result of `predicate(*first)`;
+- whether `first` is incremented or returned.
+
+Explain why `findFirst` does not need to know the type of the container.
 
 ## 9. Design question
 

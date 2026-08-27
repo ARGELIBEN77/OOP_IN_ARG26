@@ -3,7 +3,6 @@
 #include "SongFunctors.hpp"
 #include "SortedCatalog.hpp"
 
-#include <algorithm>
 #include <iostream>
 #include <string>
 
@@ -97,16 +96,6 @@ int main()
         std::cout << iterator->getArtist()
                   << " - " << iterator->getTitle() << '\n';
     }
-
-    // A standard algorithm can use the custom iterator because it satisfies
-    // the forward-iterator operations and supplies iterator trait aliases.
-    const auto standardCount = std::count_if(
-        byArtist.begin(),
-        byArtist.end(),
-        LongerThan(200));
-
-    std::cout << "\nstd::count_if found " << standardCount
-              << " songs longer than 200 seconds.\n";
 
     return 0;
 }

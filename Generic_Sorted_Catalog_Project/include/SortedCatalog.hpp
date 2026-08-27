@@ -3,7 +3,6 @@
 
 #include <algorithm>
 #include <cstddef>
-#include <iterator>
 #include <utility>
 #include <vector>
 
@@ -48,25 +47,17 @@ public:
         friend class SortedCatalog<T, Compare>;
 
     public:
-        // These aliases allow standard algorithms to obtain information about
-        // the iterator through std::iterator_traits.
-        using iterator_category = std::forward_iterator_tag;
-        using value_type = T;
-        using difference_type = std::ptrdiff_t;
-        using pointer = const T*;
-        using reference = const T&;
-
         Iterator()
             : current_(nullptr)
         {
         }
 
-        reference operator*() const
+        const T& operator*() const
         {
             return *current_;
         }
 
-        pointer operator->() const
+        const T* operator->() const
         {
             return current_;
         }
@@ -76,14 +67,6 @@ public:
         {
             ++current_;
             return *this;
-        }
-
-        // Postfix increment returns the old iterator value.
-        Iterator operator++(int)
-        {
-            Iterator old(*this);
-            ++(*this);
-            return old;
         }
 
         bool operator==(const Iterator& other) const

@@ -1,6 +1,6 @@
 # Generic Sorted Catalog Project
 
-This C++17 project demonstrates how class templates, iterators, functors,
+This C++17 project demonstrates how class templates, simple iterators, functors,
 lambdas, and generic algorithms fit together in one coherent design.
 
 The project continues the Music Library case study. `SortedCatalog<T, Compare>`
@@ -15,8 +15,13 @@ The demonstration creates the same collection of songs in two catalogs:
 - one catalog is ordered by title using a named comparison functor;
 - another is ordered by artist and title using a lambda.
 
-It then traverses the catalogs with a range-based loop and an explicit
-iterator, and processes them with both custom and standard generic algorithms.
+It then traverses the catalogs with a range-based loop and an explicit iterator,
+and processes them with small custom generic algorithms.
+
+The iterator is intentionally educational rather than a complete
+standard-library iterator. It implements only the operations used in this
+project: dereference, arrow, prefix increment, equality, and inequality.
+Iterator traits and iterator categories are outside the scope of this project.
 
 ## Before you begin
 
@@ -26,7 +31,7 @@ You need:
 - `make` for the short build commands;
 - a terminal opened in the cloned repository.
 
-On Ubuntu or WSL, the compiler and Make can be installed with:
+On Ubuntu or WSL, install the compiler and Make with:
 
 ```bash
 sudo apt update
@@ -100,14 +105,14 @@ The demonstration should print:
 3. the number of songs by U2;
 4. messages showing every song being played;
 5. songs ordered by artist and then title;
-6. explicit iterator traversal;
-7. the result of `std::count_if`.
+6. explicit iterator traversal.
 
-The test command should finish with a success message and no assertion failure.
+The test command should finish with `All SortedCatalog tests passed.` and no
+assertion failure.
 
 ## Recommended reading order
 
-Do not begin with the template container. Build the idea gradually:
+Build the idea gradually:
 
 1. `include/Song.hpp` and `src/Song.cpp` — the ordinary domain class.
 2. `include/SongFunctors.hpp` — named comparison and predicate objects.
@@ -125,7 +130,7 @@ Generic_Sorted_Catalog_Project/
 │   ├── Algorithms.hpp       Generic findFirst, countIf, and forEach
 │   ├── Song.hpp             Example domain class
 │   ├── SongFunctors.hpp     Comparison and predicate functors
-│   └── SortedCatalog.hpp    Generic container and iterator
+│   └── SortedCatalog.hpp    Generic container and simple iterator
 ├── src/
 │   ├── Song.cpp
 │   └── main.cpp             Demonstrations with functors and lambdas
@@ -146,11 +151,10 @@ After studying the project, students should be able to:
 - explain the roles of `T` and `Compare` in a class template;
 - identify the operations required from a comparison policy;
 - explain the iterator range `[begin, end)`;
-- implement dereference, arrow, increment, and comparison operators;
+- implement dereference, arrow, prefix increment, and comparison operators;
 - explain how a range-based `for` loop uses an iterator;
-- pass functors and lambdas to generic algorithms;
-- explain lambda captures and `decltype(lambda)`;
-- use a custom iterator with a standard-library algorithm.
+- pass functors and lambdas to custom generic algorithms;
+- explain lambda captures and `decltype(lambda)`.
 
 ## Suggested classroom sequence
 
@@ -162,16 +166,14 @@ After studying the project, students should be able to:
 6. Translate that loop into a range-based `for` loop.
 7. Use a predicate functor with `teaching::countIf`.
 8. Replace the functor with a lambda.
-9. Use the custom iterator with `std::count_if`.
-10. Construct a second catalog whose comparator is a lambda.
-11. Continue with the tasks in `EXERCISES.md`.
+9. Construct a second catalog whose comparator is a lambda.
+10. Continue with the tasks in `EXERCISES.md`.
 
 ## Important design decision
 
 The iterator provides `const T&`, even for a non-const catalog. This is
 deliberate. If clients changed a title or duration through the iterator, the
-catalog could stop being sorted. The design is similar to ordered associative
-containers, whose keys cannot be modified through an iterator.
+catalog could stop being sorted.
 
 The internal `std::vector` is also deliberate: this project concentrates on
 generic programming and iterator design rather than repeating manual memory
@@ -183,5 +185,4 @@ new invariant and interface: every insertion preserves an ordering policy.
 An iterator should not be kept while the catalog is modified. `add`, `remove`,
 and `clear` may invalidate existing iterators because `std::vector` may move
 or shift its elements. Obtain new `begin()` and `end()` iterators after a
-modifying operation. This is part of an iterator's behavioral contract, not
-merely an implementation detail.
+modifying operation.
