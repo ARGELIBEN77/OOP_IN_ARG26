@@ -5,10 +5,9 @@ linked container that preserves insertion order. It connects class templates,
 manual ownership, simple iterators, generic algorithms, functors, and lambdas
 in the Music Library case study.
 
-The iterator is intentionally small. It provides dereference, arrow, prefix
-increment, equality, and inequality—the operations actually used here. The
-project does not introduce `std::iterator_traits`, iterator categories,
-allocators, or other library-level iterator machinery.
+The iterator focuses on the essential operations needed for explicit
+traversal, range-based loops, and this project's generic algorithms:
+dereference, arrow, prefix increment, equality, and inequality.
 
 ## Learning objectives
 
@@ -119,9 +118,9 @@ Generic_Favorites_Linked_List/
 
 ## Important design decisions
 
-`FavoritesList` uses raw pointers because node ownership and the Rule of Three
-are intentional review topics. Smart pointers and move semantics belong to the
-next unit and can later be used to compare alternative designs.
+`FavoritesList` uses raw pointers to make node ownership visible and reinforce
+the Rule of Three. Students can trace exactly when nodes are allocated, copied,
+linked, unlinked, and deleted.
 
 Adding happens at the end so iteration keeps the students' insertion order.
 The `last` pointer makes this operation constant time.
