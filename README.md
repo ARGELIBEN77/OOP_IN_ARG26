@@ -3,6 +3,11 @@
 This educational repository contains teaching projects for the C++ Object-Oriented
 Programming course, in Ramat Gan AcademiCollege, teached by Elina Benenson Opalinsky. Each project is kept in its own directory so that more course projects can be added later.
 
+## Course units
+
+The [Units directory](Units/README.md) organizes the 13-unit teaching sequence
+and connects each unit with its related repository projects.
+
 ## Available projects
 
 | Project | Main topics | Start here |
