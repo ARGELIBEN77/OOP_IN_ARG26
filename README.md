@@ -1,7 +1,7 @@
 # OOP in C++ — Course Repository
 
-This repository contains teaching projects for the C++ Object-Oriented
-Programming course. Each project is kept in its own directory so that more
+This educational repository contains teaching projects for the C++ Object-Oriented
+Programming course, in Ramat Gan AC. Each project is kept in its own directory so that more
 course projects can be added later.
 
 ## Available projects
