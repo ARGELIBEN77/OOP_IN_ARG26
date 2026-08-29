@@ -14,6 +14,7 @@ course projects can be added later.
 | Inheritance and Polymorphism Media Library | Inheritance, abstract classes, overriding, runtime polymorphism, and virtual destructors | [Open the project](Inheritance_Polymorphism_Media_Library/README.md) |
 | Exception Handling — Music Store | Standard and custom exceptions, propagation, catch ordering, stack unwinding, and exception-safe state | [Open the project](Exception_Handling_Music_Store/README.md) |
 | Generic Sorted Catalog | Class templates, custom iterators, generic algorithms, functors, and lambdas | [Open the project](Generic_Sorted_Catalog_Project/README.md) |
+| Generic Favorites Linked List | Class templates, linked nodes, Rule of Three, simple iterators, generic algorithms, functors, and lambdas | [Open the project](Generic_Favorites_Linked_List/README.md) |
 
 ## How to use this repository
 
