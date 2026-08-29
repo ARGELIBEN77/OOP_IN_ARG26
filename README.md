@@ -1,8 +1,7 @@
 # OOP in C++ — Course Repository
 
 This educational repository contains teaching projects for the C++ Object-Oriented
-Programming course, in Ramat Gan AC. Each project is kept in its own directory so that more
-course projects can be added later.
+Programming course, in Ramat Gan AcademiCollege, teached by Elina Benenson Opalinsky. Each project is kept in its own directory so that more course projects can be added later.
 
 ## Available projects
 
