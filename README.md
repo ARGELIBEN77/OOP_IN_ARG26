@@ -11,8 +11,9 @@ course projects can be added later.
 | Song Class Fundamentals | Procedural `struct` to class, encapsulation, constructors, initializer lists, getters, validation, and `const` methods | [Open the project](Song_Class_Fundamentals/README.md) |
 | Product Catalog and Shopping Cart | Composition, object collaboration, vectors of objects, catalog search, cart items, and calculated totals | [Open the project](Product_Catalog_and_Shopping_Cart/README.md) |
 | Playlist — Rule of Three and Operators | Dynamic arrays, deep copy, Rule of Three, comparison, stream, subscript, and compound-assignment operators | [Open the project](Playlist_Rule_of_Three_and_Operators/README.md) |
-| Generic Sorted Catalog | Class templates, custom iterators, generic algorithms, functors, and lambdas | [Open the project](Generic_Sorted_Catalog_Project/README.md) |
 | Inheritance and Polymorphism Media Library | Inheritance, abstract classes, overriding, runtime polymorphism, and virtual destructors | [Open the project](Inheritance_Polymorphism_Media_Library/README.md) |
+| Exception Handling — Music Store | Standard and custom exceptions, propagation, catch ordering, stack unwinding, and exception-safe state | [Open the project](Exception_Handling_Music_Store/README.md) |
+| Generic Sorted Catalog | Class templates, custom iterators, generic algorithms, functors, and lambdas | [Open the project](Generic_Sorted_Catalog_Project/README.md) |
 
 ## How to use this repository
 
