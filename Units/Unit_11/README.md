@@ -9,5 +9,8 @@ This unit introduces explicit ownership models and efficient resource transfer.
 - Transferring ownership with `std::move`
 - Choosing an ownership model for object relationships
 
-Lecture notes, examples, exercises, and the Unit 11 project can be collected
-in this directory.
+## Unit materials
+
+- [Lecture notes](LECTURE_NOTES.md)
+- [Smart Pointers and Media Ownership project](../../Smart_Pointers_Media_Ownership/README.md)
+- [Guided project exercises](../../Smart_Pointers_Media_Ownership/EXERCISES.md)
