@@ -23,7 +23,7 @@ int main()
         std::cout << "  " << song << '\n';
 
     ArtistMatches isByU2("U2");
-    std::size_t u2Count = teaching::countIf(
+    std::size_t u2Count = learning::countIf(
         favoriteSongs.begin(), favoriteSongs.end(), isByU2);
 
     std::cout << "\nSongs by U2: " << u2Count << '\n';
@@ -37,7 +37,7 @@ int main()
         return song.getDuration() >= minimumDuration;
     };
 
-    auto found = teaching::findFirst(
+    auto found = learning::findFirst(
         favoriteSongs.begin(), favoriteSongs.end(), longSong);
 
     if (found != favoriteSongs.end())
@@ -45,7 +45,7 @@ int main()
                   << " seconds: " << *found << '\n';
 
     std::cout << "\nTitles through a generic action:\n";
-    teaching::forEach(
+    learning::forEach(
         favoriteSongs.begin(), favoriteSongs.end(),
         [](const Song& song)
         {

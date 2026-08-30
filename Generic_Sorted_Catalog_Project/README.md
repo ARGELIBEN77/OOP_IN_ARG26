@@ -18,10 +18,9 @@ The demonstration creates the same collection of songs in two catalogs:
 It then traverses the catalogs with a range-based loop and an explicit iterator,
 and processes them with small custom generic algorithms.
 
-The iterator is intentionally educational rather than a complete
-standard-library iterator. It implements only the operations used in this
-project: dereference, arrow, prefix increment, equality, and inequality.
-Iterator traits and iterator categories are outside the scope of this project.
+The iterator focuses on the essential operations needed for explicit
+traversal, range-based loops, and this project's generic algorithms:
+dereference, arrow, prefix increment, equality, and inequality.
 
 ## Before you begin
 
@@ -156,7 +155,7 @@ After studying the project, students should be able to:
 - pass functors and lambdas to custom generic algorithms;
 - explain lambda captures and `decltype(lambda)`.
 
-## Suggested classroom sequence
+## Suggested learning sequence
 
 1. Run the program before reading its implementation.
 2. Examine `Song` and verify that it contains no generic-programming code.
@@ -164,7 +163,7 @@ After studying the project, students should be able to:
 4. Trace `add` and observe how `Compare` controls `std::lower_bound`.
 5. Trace an explicit iterator loop.
 6. Translate that loop into a range-based `for` loop.
-7. Use a predicate functor with `teaching::countIf`.
+7. Use a predicate functor with `learning::countIf`.
 8. Replace the functor with a lambda.
 9. Construct a second catalog whose comparator is a lambda.
 10. Continue with the tasks in `EXERCISES.md`.

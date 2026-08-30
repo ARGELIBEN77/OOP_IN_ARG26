@@ -55,7 +55,7 @@ Songs.
 
 ## 6. Functor and equivalent lambda
 
-Use `LongerThan(200)` with `teaching::countIf`. Then replace it with an
+Use `LongerThan(200)` with `learning::countIf`. Then replace it with an
 equivalent capturing lambda. Explain where each object stores the value `200`.
 
 ## 7. Write a generic algorithm
@@ -72,7 +72,7 @@ specified artist.
 
 ## 8. Trace a generic algorithm
 
-Trace `teaching::findFirst` for a catalog containing three Songs. Use a
+Trace `learning::findFirst` for a catalog containing three Songs. Use a
 predicate that accepts Songs longer than 200 seconds. For each loop iteration,
 record:
 

@@ -39,7 +39,7 @@ int main()
     // A predicate lambda is convenient for a condition used in one location.
     // minimumDuration is captured by value, so the closure stores its own copy.
     const int minimumDuration = 240;
-    auto firstLongSong = teaching::findFirst(
+    auto firstLongSong = learning::findFirst(
         byTitle.begin(),
         byTitle.end(),
         [minimumDuration](const Song& song)
@@ -52,14 +52,14 @@ int main()
                   << " seconds: " << *firstLongSong << '\n';
 
     // The same generic algorithm also accepts a named, stateful functor.
-    const std::size_t u2Songs = teaching::countIf(
+    const std::size_t u2Songs = learning::countIf(
         byTitle.begin(), byTitle.end(), ArtistIs("U2"));
 
     std::cout << "Number of U2 songs: " << u2Songs << '\n';
 
     // Action lambdas need not return bool. This one calls a member function.
     std::cout << "\nPlaying every song through a generic forEach algorithm:\n";
-    teaching::forEach(
+    learning::forEach(
         byTitle.begin(),
         byTitle.end(),
         [](const Song& song)

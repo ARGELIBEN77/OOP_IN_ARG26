@@ -1,7 +1,7 @@
 # Course Units
 
-This directory organizes the 13-unit course sequence. Each unit directory is a
-home for its lecture notes, examples, classroom activities, exercises, and
+This directory organizes the 13-unit learning sequence. Each unit brings
+together lecture notes, examples, practice activities, exercises, and
 supporting resources. Project code remains in the independent project
 directories at the repository root and is linked from the relevant units.
 
@@ -25,7 +25,7 @@ directories at the repository root and is linked from the relevant units.
 
 - Lecture notes and slides
 - Demonstration code
-- Classroom exercises
-- Student assignments
-- Instructor solutions
-- Learning-outcome checklist
+- Practice exercises
+- Assignments and projects
+- Exercise and solution sets
+- Learning outcomes and self-checks

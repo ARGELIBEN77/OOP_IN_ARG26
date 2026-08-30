@@ -3,7 +3,7 @@
 
 #include <cstddef>
 
-namespace teaching
+namespace learning
 {
 // All three algorithms work with the half-open range [first, last): first
 // refers to the current element, while last marks the position after the final

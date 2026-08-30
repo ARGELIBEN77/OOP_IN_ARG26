@@ -3,7 +3,7 @@
 
 #include <cstddef>
 
-namespace teaching
+namespace learning
 {
 // These algorithms depend only on iterator operations, not on a particular
 // container. They can therefore work with FavoritesList or another container

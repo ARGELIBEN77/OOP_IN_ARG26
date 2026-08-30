@@ -1,6 +1,6 @@
 # Generic Favorites Linked List
 
-This C++17 teaching project implements `FavoritesList<T>`, a generic singly
+This C++17 learning project implements `FavoritesList<T>`, a generic singly
 linked container that preserves insertion order. It connects class templates,
 manual ownership, simple iterators, generic algorithms, functors, and lambdas
 in the Music Library case study.

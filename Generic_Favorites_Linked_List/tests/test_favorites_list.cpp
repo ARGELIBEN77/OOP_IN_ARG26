@@ -104,11 +104,11 @@ void testAlgorithmsAndPredicates()
     songs.add(Song("Africa", "Toto", 295));
     songs.add(Song("Beautiful Day", "U2", 248));
 
-    assert(teaching::countIf(
+    assert(learning::countIf(
                songs.begin(), songs.end(), ArtistMatches("U2")) == 2);
 
     int duration = 290;
-    auto found = teaching::findFirst(
+    auto found = learning::findFirst(
         songs.begin(), songs.end(),
         [duration](const Song& song)
         {
@@ -119,7 +119,7 @@ void testAlgorithmsAndPredicates()
     assert(found->getTitle() == "Africa");
 
     int totalDuration = 0;
-    teaching::forEach(
+    learning::forEach(
         songs.begin(), songs.end(),
         [&totalDuration](const Song& song)
         {

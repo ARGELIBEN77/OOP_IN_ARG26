@@ -47,13 +47,13 @@ void testGenericAlgorithms()
 {
     const auto catalog = makeCatalog();
 
-    const auto u2Count = teaching::countIf(
+    const auto u2Count = learning::countIf(
         catalog.begin(), catalog.end(), ArtistIs("U2"));
     assert(u2Count == 2);
 
     // The algorithm accepts a lambda without knowing that the elements are
     // Songs or that the iterators came from SortedCatalog.
-    const auto found = teaching::findFirst(
+    const auto found = learning::findFirst(
         catalog.begin(),
         catalog.end(),
         [](const Song& song)

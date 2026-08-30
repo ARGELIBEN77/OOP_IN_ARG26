@@ -1,6 +1,6 @@
 # Smart Pointers and Media Ownership
 
-This C++17 teaching project demonstrates ownership using `std::unique_ptr`,
+This C++17 learning project explores ownership using `std::unique_ptr`,
 `std::shared_ptr`, and introductory move semantics. It continues the Media
 Library case study and connects smart pointers with inheritance, virtual
 functions, virtual destructors, containers, and object lifetime.
