@@ -18,8 +18,8 @@ directories at the repository root and is linked from the relevant units.
 | [Unit 9](Unit_09/README.md) | Exception handling | Music Store project |
 | [Unit 10](Unit_10/README.md) | Templates, generic programming, and iterators | Sorted Catalog and FavoritesList projects |
 | [Unit 11](Unit_11/README.md) | Smart pointers and move semantics | Smart Pointers and Media Ownership |
-| [Unit 12](Unit_12/README.md) | Unit 12 | Unit material will be organized here |
-| [Unit 13](Unit_13/README.md) | Unit 13 | Unit material will be organized here |
+| [Unit 12](Unit_12/README.md) | Standard Template Library (STL) | STL integration with the existing course projects |
+| [Unit 13](Unit_13/README.md) | Exam preparation and course integration | Review activities drawn from all units and projects |
 
 ## Suggested contents for each unit
 
