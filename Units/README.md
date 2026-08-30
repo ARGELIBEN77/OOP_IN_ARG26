@@ -17,7 +17,7 @@ directories at the repository root and is linked from the relevant units.
 | [Unit 8](Unit_08/README.md) | Runtime polymorphism and abstract classes | Media Library project |
 | [Unit 9](Unit_09/README.md) | Exception handling | Music Store project |
 | [Unit 10](Unit_10/README.md) | Templates, generic programming, and iterators | Sorted Catalog and FavoritesList projects |
-| [Unit 11](Unit_11/README.md) | Smart pointers and move semantics | Smart Pointers and Media Ownership |
+| [Unit 11](Unit_11/README.md) | Smart pointers and move semantics | Media Ownership and Musicians projects |
 | [Unit 12](Unit_12/README.md) | Standard Template Library (STL) | STL integration with the existing course projects |
 | [Unit 13](Unit_13/README.md) | Exam preparation and course integration | Review activities drawn from all units and projects |
 
