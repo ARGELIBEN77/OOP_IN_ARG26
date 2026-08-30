@@ -11,7 +11,7 @@ Ensemble::Ensemble(const std::string& name)
         throw std::invalid_argument("Ensemble name cannot be empty");
 }
 
-void Ensemble::addMusician(std::shared_ptr<Musician> musician)
+void Ensemble::addMusician(SharedPointer<Musician> musician)
 {
     if (musician == nullptr)
         throw std::invalid_argument("Cannot add an empty musician pointer");

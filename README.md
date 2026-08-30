@@ -24,7 +24,7 @@ and connects each unit with its related repository projects.
 | Generic Sorted Catalog | Class templates, custom iterators, generic algorithms, functors, and lambdas | [Open the project](Generic_Sorted_Catalog_Project/README.md) |
 | Generic Favorites Linked List | Class templates, linked nodes, Rule of Three, simple iterators, generic algorithms, functors, and lambdas | [Open the project](Generic_Favorites_Linked_List/README.md) |
 | Smart Pointers and Media Ownership | `unique_ptr`, `shared_ptr`, ownership transfer, move semantics, automatic lifetime, and polymorphic collections | [Open the project](Smart_Pointers_Media_Ownership/README.md) |
-| Musicians and Instruments — Smart Pointer Ownership | Exclusive instrument ownership, ownership transfer, shared guest musicians, and observable lifetime | [Open the project](Musicians_and_Instruments_Smart_Pointers/README.md) |
+| Musicians and Instruments — Smart Pointer Implementation | Custom `UniquePointer<T>` and `SharedPointer<T>`, move operations, reference counting, and observable lifetime | [Open the project](Musicians_and_Instruments_Smart_Pointers/README.md) |
 
 ## How to use this repository
 

@@ -2,10 +2,10 @@
 #define SHARED_ENSEMBLE_HPP
 
 #include "Musician.hpp"
+#include "SharedPointer.hpp"
 
 #include <cstddef>
 #include <iosfwd>
-#include <memory>
 #include <string>
 #include <vector>
 
@@ -15,12 +15,12 @@ class Ensemble
 {
 private:
     std::string name;
-    std::vector<std::shared_ptr<Musician>> musicians;
+    std::vector<SharedPointer<Musician>> musicians;
 
 public:
     explicit Ensemble(const std::string& name);
 
-    void addMusician(std::shared_ptr<Musician> musician);
+    void addMusician(SharedPointer<Musician> musician);
 
     const std::string& getName() const;
     std::size_t size() const;

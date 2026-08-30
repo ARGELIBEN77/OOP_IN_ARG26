@@ -5,7 +5,8 @@ TEST_TARGET := bin/musicians_tests
 COMMON_SOURCES := src/Instrument.cpp src/Musician.cpp src/Ensemble.cpp
 SOURCES := src/main.cpp $(COMMON_SOURCES)
 TEST_SOURCES := tests/test_musicians.cpp $(COMMON_SOURCES)
-HEADERS := include/Instrument.hpp include/Musician.hpp include/Ensemble.hpp
+HEADERS := include/Instrument.hpp include/Musician.hpp include/Ensemble.hpp \
+	include/UniquePointer.hpp include/SharedPointer.hpp
 
 .PHONY: all run test clean
 

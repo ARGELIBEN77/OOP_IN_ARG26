@@ -38,7 +38,7 @@ const Instrument& Musician::getInstrument() const
     return *instrument;
 }
 
-void Musician::receiveInstrument(std::unique_ptr<Instrument> newInstrument)
+void Musician::receiveInstrument(UniquePointer<Instrument> newInstrument)
 {
     if (newInstrument == nullptr)
         throw std::invalid_argument("Cannot receive an empty instrument pointer");
@@ -48,9 +48,9 @@ void Musician::receiveInstrument(std::unique_ptr<Instrument> newInstrument)
     instrument = std::move(newInstrument);
 }
 
-std::unique_ptr<Instrument> Musician::releaseInstrument()
+UniquePointer<Instrument> Musician::releaseInstrument()
 {
-    // Returning unique_ptr transfers ownership to the caller.
+    // Returning UniquePointer transfers ownership to the caller.
     return std::move(instrument);
 }
 

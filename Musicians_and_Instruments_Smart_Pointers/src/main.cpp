@@ -1,9 +1,10 @@
 #include "Ensemble.hpp"
 #include "Instrument.hpp"
 #include "Musician.hpp"
+#include "SharedPointer.hpp"
+#include "UniquePointer.hpp"
 
 #include <iostream>
-#include <memory>
 #include <utility>
 
 int main()
@@ -14,7 +15,7 @@ int main()
     {
         Musician noa("Noa");
         Musician daniel("Daniel");
-        auto guitar = std::make_unique<Instrument>("Guitar");
+        UniquePointer<Instrument> guitar(new Instrument("Guitar"));
 
         std::cout << "The local pointer owns the guitar: "
                   << (guitar != nullptr) << '\n';
@@ -41,8 +42,9 @@ int main()
 
     std::cout << "Part 2: a guest musician shared by two ensembles\n";
     {
-        auto guest = std::make_shared<Musician>("Maya");
-        guest->receiveInstrument(std::make_unique<Instrument>("Violin"));
+        SharedPointer<Musician> guest(new Musician("Maya"));
+        guest->receiveInstrument(
+            UniquePointer<Instrument>(new Instrument("Violin")));
 
         Ensemble chamberGroup("Chamber Group");
         Ensemble studioGroup("Studio Group");
@@ -50,7 +52,7 @@ int main()
         chamberGroup.addMusician(guest);
         studioGroup.addMusician(guest);
 
-        std::cout << "Number of guest owners: " << guest.use_count() << '\n';
+        std::cout << "Number of guest owners: " << guest.useCount() << '\n';
 
         // The two ensembles remain owners after the original pointer releases
         // its share, so the Musician and Instrument remain alive.
