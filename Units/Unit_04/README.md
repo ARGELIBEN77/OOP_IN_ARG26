@@ -2,6 +2,15 @@
 
 This unit follows objects from construction through scope exit and destruction.
 
+## Learning outcomes
+
+After completing this unit, you should be able to:
+
+- distinguish automatic and dynamic object lifetime;
+- predict construction and destruction order in nested scopes;
+- implement a destructor when a class owns a resource;
+- trace the lifetime of objects contained by composition.
+
 ## Main ideas
 
 - Automatic and dynamic object lifetime

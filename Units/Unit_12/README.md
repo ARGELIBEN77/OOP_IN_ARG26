@@ -4,7 +4,7 @@ This unit brings together STL containers, iterators, algorithms, and callable
 objects. Learners apply the generic-programming ideas from Unit 10 to standard
 C++ components and select suitable containers for application requirements.
 
-## Learning objectives
+## Learning outcomes
 
 After completing this unit, learners should be able to:
 

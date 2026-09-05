@@ -2,6 +2,15 @@
 
 This unit introduces explicit ownership models and efficient resource transfer.
 
+## Learning outcomes
+
+After completing this unit, you should be able to:
+
+- select exclusive or shared ownership for an object relationship;
+- transfer a `unique_ptr` using move semantics;
+- trace the reference count and lifetime of a `shared_ptr` object;
+- implement the essential operations of simplified unique and shared pointers.
+
 ## Main ideas
 
 - Exclusive ownership with `std::unique_ptr`

@@ -3,6 +3,15 @@
 This unit combines ownership-aware copying with operators that give classes a
 natural C++ interface.
 
+## Learning outcomes
+
+After completing this unit, you should be able to:
+
+- implement the destructor, copy constructor, and copy assignment operator;
+- demonstrate that a copied object owns an independent deep copy;
+- select an appropriate member or non-member operator implementation;
+- implement and test stream, comparison, subscript, and compound operators.
+
 ## Main ideas
 
 - Destructor, copy constructor, and copy assignment

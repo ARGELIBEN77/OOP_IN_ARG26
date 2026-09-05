@@ -3,6 +3,15 @@
 This unit develops reusable functions, classes, containers, algorithms, and
 callable objects.
 
+## Learning outcomes
+
+After completing this unit, you should be able to:
+
+- implement and instantiate function and class templates;
+- state the operations required from a template argument;
+- implement a simple iterator and use it in a range-based loop;
+- apply generic algorithms with functors and capturing lambdas.
+
 ## Main ideas
 
 - Function and class templates

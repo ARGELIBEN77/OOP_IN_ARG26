@@ -3,6 +3,15 @@
 This unit uses abstract base classes to define shared behavior for families of
 objects.
 
+## Learning outcomes
+
+After completing this unit, you should be able to:
+
+- define an abstract class using pure virtual operations;
+- distinguish abstract and concrete classes;
+- invoke runtime polymorphism through base references or pointers;
+- extend a polymorphic collection with a new derived type.
+
 ## Main ideas
 
 - Runtime dispatch through base pointers and references

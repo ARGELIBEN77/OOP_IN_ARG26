@@ -4,7 +4,7 @@ This unit consolidates the complete course through tracing, explanation,
 debugging, design, and coding practice. Learners connect concepts across units
 and prepare to solve integrated object-oriented C++ problems independently.
 
-## Learning objectives
+## Learning outcomes
 
 After completing this unit, learners should be able to:
 
@@ -47,12 +47,15 @@ After completing this unit, learners should be able to:
 - [Course-unit index](../README.md)
 - [Course projects](../../README.md#available-projects)
 - [Practice examination — 180 minutes](PRACTICE_EXAM.md)
+- [Practice examination 2 — 180 minutes](PRACTICE_EXAM_2.md)
 - [Complete-course review bank](REVIEW_QUESTION_BANK.md)
 - [Assessment coverage matrix](ASSESSMENT_COVERAGE.md)
+- [Exam timing pilot protocol](EXAM_PILOT_PROTOCOL.md)
 
 ## Check your work
 
-Complete the practice examination under timed conditions before opening the
-[solutions and marking guide](../../Solutions/Unit_13/PRACTICE_EXAM_SOLUTIONS.md).
+Complete a practice examination under timed conditions before opening its
+solution: [exam 1](../../Solutions/Unit_13/PRACTICE_EXAM_SOLUTIONS.md) or
+[exam 2](../../Solutions/Unit_13/PRACTICE_EXAM_2_SOLUTIONS.md).
 Compare the reasoning as well as the final code, mark the places where your
 approach differed, and then solve the difficult parts again without looking.
