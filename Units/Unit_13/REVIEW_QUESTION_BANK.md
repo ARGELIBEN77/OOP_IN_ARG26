@@ -1,18 +1,19 @@
 # Complete-Course Review Bank
 
-This bank helps you practise the complete course before attempting a timed
-examination. The questions are grouped by unit so that you can work on a
-specific area. They do not include solutions.
+Use this question bank to review individual topics before attempting a full
+practice examination. The questions are arranged by unit, so you can begin
+with a topic that needs more work or complete the bank in course order.
 
-For code questions, first answer without compiling. Afterwards, compile the
-code to check your reasoning. Unless a question says otherwise, use C++17.
+Try each tracing question on paper before running the code. For programming
+questions, write and test a complete solution unless the question asks only
+for declarations or an explanation. Use C++17. Solutions are kept separately.
 
 ## Unit 1
 
-### Task 1.1 — Redesign a record
+### Question 1.1 — Redesign a record
 
-**Estimated time:** 15 minutes  
-**Submit:** A class declaration and a short explanation.
+*Suggested time: 15 minutes*  
+**Your answer should include:** A class declaration and a short explanation.
 
 The following record allows any part of a program to create an invalid song:
 
@@ -24,15 +25,17 @@ struct SongRecord {
 };
 ```
 
-Replace it with a `Song` class. Keep the state private and provide only the
-operations needed to create a song and read its data. A title and artist must
-not be empty, and the duration must be positive. State two invalid situations
-that client code can create with `SongRecord` but cannot create with `Song`.
+Replace `SongRecord` with a `Song` class. The title and artist must not be
+empty, and the duration must be positive. Keep all data members private and
+provide the operations needed to construct a song and read its details.
 
-### Task 1.2 — Separate the class
+After writing the class declaration, give two examples of invalid objects that
+could be created with `SongRecord` but are prevented by your `Song` interface.
 
-**Estimated time:** 15 minutes  
-**Submit:** `Song.hpp`, `Song.cpp`, and a short `main.cpp`.
+### Question 1.2 — Separate the class
+
+*Suggested time: 15 minutes*  
+**Your answer should include:** `Song.hpp`, `Song.cpp`, and a short `main.cpp`.
 
 Separate your class from Task 1.1 into declaration and implementation files.
 In `main`, construct two valid songs and print their details using public
@@ -40,12 +43,13 @@ operations only. Include suitable header guards.
 
 ## Unit 2
 
-### Task 2.1 — Protect an invariant
+### Question 2.1 — Protect an invariant
 
-**Estimated time:** 15 minutes  
-**Submit:** The completed class and two test cases.
+*Suggested time: 15 minutes*  
+**Your answer should include:** The completed class and two test cases.
 
-Complete this class so that `rating` always remains between 1 and 5:
+Complete the constructor and `changeRating` so that `rating` always remains
+between 1 and 5. Do not add a public setter for either data member.
 
 ```cpp
 class Review {
@@ -61,16 +65,18 @@ public:
 };
 ```
 
-For this exercise, reject an invalid rating by leaving the object unchanged.
-Write one test for a valid modification and one for an invalid modification.
-Explain why client code cannot bypass the validation.
+For this question, an invalid rating should leave the object unchanged. Write
+one test using a valid new rating and one using an invalid new rating. Finally,
+explain why client code cannot assign an arbitrary value directly to
+`rating`.
 
-### Task 2.2 — Check `const` correctness
+### Question 2.2 — Check `const` correctness
 
-**Estimated time:** 10 minutes  
-**Submit:** Corrected declarations and one sentence for every change.
+*Suggested time: 10 minutes*  
+**Your answer should include:** Corrected declarations and one sentence for every change.
 
-Correct the declarations that should be usable through a `const Playlist&`:
+Some of the following functions below are incorrectly declared. Rewrite the
+four declarations, adding or removing `const` where necessary.
 
 ```cpp
 class Playlist {
@@ -82,18 +88,21 @@ public:
 };
 ```
 
-Do not change a function to `const` if it logically modifies the playlist.
+The corrected observer functions must be callable through a
+`const Playlist&`. A function that changes the playlist must not be declared
+`const`.
 
 ## Unit 3
 
-### Task 3.1 — Select constructors
+### Question 3.1 — Select constructors
 
-**Estimated time:** 15 minutes  
-**Submit:** The completed class and the selected constructor for each line.
+*Suggested time: 15 minutes*  
+**Your answer should include:** The completed class and the selected constructor for each line.
 
-Complete `Course` with a default constructor and a parameterized constructor.
-The default course has code `"UNKNOWN"` and capacity 30. Use initializer lists
-and delegate from one constructor to the other where appropriate.
+Add a default constructor and a constructor that receives a course code and a
+capacity. A default course has code `"UNKNOWN"` and capacity 30. Initialize
+members with initializer lists. Avoid repeating the initialization logic by
+delegating from one constructor to the other.
 
 ```cpp
 class Course {
@@ -111,13 +120,13 @@ Course third{};
 Course fourth{"OOP201", 25};
 ```
 
-For each declaration, identify the selected constructor and the final member
-values.
+For each of the four declarations, write which constructor is called and give
+the final values of `code` and `capacity`.
 
-### Task 3.2 — Find the initialization error
+### Question 3.2 — Find the initialization error
 
-**Estimated time:** 10 minutes  
-**Submit:** Corrected code and an explanation.
+*Suggested time: 10 minutes*  
+**Your answer should include:** Corrected code and an explanation.
 
 ```cpp
 class Registration {
@@ -133,15 +142,16 @@ public:
 };
 ```
 
-Explain why the constructor does not correctly initialize its members and
-rewrite it using an initializer list.
+The compiler rejects this constructor. Explain separately why assignment does
+not work for `registrationNumber` and why it does not initialize the
+`student` reference. Then rewrite the constructor correctly.
 
 ## Unit 4
 
-### Task 4.1 — Trace object lifetime
+### Question 4.1 — Trace object lifetime
 
-**Estimated time:** 15 minutes  
-**Submit:** The exact output order and an explanation.
+*Suggested time: 15 minutes*  
+**Your answer should include:** The exact output order and an explanation.
 
 ```cpp
 class Track {
@@ -171,10 +181,10 @@ int main() {
 Predict the complete output before running the program. Explain the rule that
 determines the destruction order.
 
-### Task 4.2 — Compare automatic and dynamic lifetime
+### Question 4.2 — Compare automatic and dynamic lifetime
 
-**Estimated time:** 15 minutes  
-**Submit:** The output order, the corrected program, and an explanation.
+*Suggested time: 15 minutes*  
+**Your answer should include:** The output order, the corrected program, and an explanation.
 
 ```cpp
 int main() {
@@ -184,16 +194,16 @@ int main() {
 }
 ```
 
-Predict the output and identify the resource-management error. Correct the
-program using the techniques available at this point in the course. Explain
-when each destructor executes in the corrected version.
+Write the output produced by the program and identify the object whose
+destructor is never called. Correct the program using `delete`, then write the
+new output and explain when each destructor runs.
 
 ## Unit 5
 
-### Task 5.1 — Model relationships
+### Question 5.1 — Model relationships
 
-**Estimated time:** 20 minutes  
-**Submit:** A UML class diagram and a short justification.
+*Suggested time: 20 minutes*  
+**Your answer should include:** A UML class diagram and a short justification.
 
 A university stores `Student` and `Course` objects independently. A
 `Registration` connects one existing student with one existing course. If a
@@ -204,10 +214,10 @@ independently of that course.
 Draw the classes, multiplicities, and relationships. Identify which
 relationship is an association and which is a composition, and justify both.
 
-### Task 5.2 — Pass and return objects
+### Question 5.2 — Pass and return objects
 
-**Estimated time:** 15 minutes  
-**Submit:** Corrected signatures and explanations.
+*Suggested time: 15 minutes*  
+**Your answer should include:** Corrected signatures and explanations.
 
 ```cpp
 void printStudent(Student student);
@@ -215,17 +225,33 @@ bool sameCourse(Course first, Course second);
 Student& createStudent(const std::string& name);
 ```
 
-Assume printing and comparison must not copy or modify their arguments.
-Correct the first two signatures. The third function creates a local `Student`
-and attempts to return it; choose a safe return type and explain why returning
-a reference would be incorrect.
+Assume that printing and comparison must neither copy nor modify their
+arguments. Rewrite the first two declarations accordingly.
+
+Assume that `createStudent` constructs a local `Student` and returns the new
+object to its caller. Correct its return type and explain why returning
+`Student&` would leave the caller with an invalid reference.
+
+### Question 5.3 — Share class-level information
+
+*Suggested time: 15 minutes*  
+**Your answer should include:** The missing declarations and definitions.
+
+Every `Student` object has its own name, but all students share one counter
+that records how many `Student` objects have been constructed. Add a static
+data member and a static function named `getStudentCount`. Increment the
+counter in the constructors.
+
+Define the short `getStudentCount` function inside the class. Explain why the
+counter is static and why this short function is a reasonable inline
+candidate.
 
 ## Unit 6
 
-### Task 6.1 — Complete the Rule of Three
+### Question 6.1 — Complete the Rule of Three
 
-**Estimated time:** 30 minutes  
-**Submit:** The three missing member implementations and two tests.
+*Suggested time: 30 minutes*  
+**Your answer should include:** The three missing member implementations and two tests.
 
 ```cpp
 class IntBuffer {
@@ -246,14 +272,17 @@ public:
 };
 ```
 
-Implement the copy constructor, copy-assignment operator, and destructor.
-Copies must own independent arrays. Assignment must be safe for self-assignment.
-Write tests that demonstrate deep copying and self-assignment.
+Implement the copy constructor, copy-assignment operator, and destructor. A
+copied buffer must own a separate array containing the same values. The
+assignment operator must also work when an object is assigned to itself.
 
-### Task 6.2 — Choose operator forms
+Write one test that changes a copied buffer and verifies that the original did
+not change. Write a second test for self-assignment.
 
-**Estimated time:** 20 minutes  
-**Submit:** Operator declarations and brief justifications.
+### Question 6.2 — Choose operator forms
+
+*Suggested time: 20 minutes*  
+**Your answer should include:** Operator declarations and brief justifications.
 
 For a `Fraction` class, declare:
 
@@ -267,10 +296,10 @@ using `const Fraction` objects remain valid where appropriate.
 
 ## Unit 7
 
-### Task 7.1 — Repair a hierarchy
+### Question 7.1 — Repair a hierarchy
 
-**Estimated time:** 20 minutes  
-**Submit:** Corrected code and five identified problems.
+*Suggested time: 20 minutes*  
+**Your answer should include:** Corrected code and five identified problems.
 
 ```cpp
 class MediaItem {
@@ -295,13 +324,20 @@ int main() {
 }
 ```
 
-Correct the inheritance access, slicing, signature mismatch, missing virtual
-dispatch, and unsafe destruction. Use `override` in the derived class.
+The program contains five hierarchy-related mistakes. Correct:
 
-### Task 7.2 — Explain binding
+1. the inheritance access;
+2. the lost polymorphism in `preview`;
+3. the signature of `Song::play`;
+4. the declaration needed for dynamic dispatch; and
+5. destruction through a base-class pointer.
 
-**Estimated time:** 15 minutes  
-**Submit:** The predicted output and an explanation using static and dynamic type.
+Use `override` in `Song`. Briefly explain each correction.
+
+### Question 7.2 — Explain binding
+
+*Suggested time: 15 minutes*  
+**Your answer should include:** The predicted output and an explanation using static and dynamic type.
 
 ```cpp
 class Base {
@@ -329,27 +365,28 @@ Predict both lines and explain why the two calls behave differently.
 
 ## Unit 8
 
-### Task 8.1 — Complete an abstract interface
+### Question 8.1 — Complete an abstract interface
 
-**Estimated time:** 20 minutes  
-**Submit:** Completed declarations and a processing function.
+*Suggested time: 20 minutes*  
+**Your answer should include:** Completed declarations and a processing function.
 
-Create an abstract `Notification` class with a pure virtual
-`send() const` operation and a virtual destructor. Implement
-`EmailNotification` and `SmsNotification`. Then write:
+Declare an abstract class named `Notification`. It must have a pure virtual
+`send() const` function and a virtual destructor. Derive
+`EmailNotification` and `SmsNotification` from it, and override `send` in
+both classes. Then implement:
 
 ```cpp
 void sendAll(const std::vector<Notification*>& notifications);
 ```
 
-The function must process every object polymorphically and must not use type
-tests. Show that a third notification type can be added without modifying
-`sendAll`.
+The function must call `send` for every notification. Do not use
+`dynamic_cast`, a type flag, or a chain of `if` statements. Add a third
+notification class and show that `sendAll` itself does not need to change.
 
-### Task 8.2 — Identify abstract and concrete classes
+### Question 8.2 — Identify abstract and concrete classes
 
-**Estimated time:** 15 minutes  
-**Submit:** Answers for A–D with explanations.
+*Suggested time: 15 minutes*  
+**Your answer should include:** Answers for A–D with explanations.
 
 ```cpp
 class Shape {
@@ -376,10 +413,10 @@ of these declarations compile: (A) `Shape shape;` (B) `Circle circle;`
 
 ## Unit 9
 
-### Task 9.1 — Trace propagation and unwinding
+### Question 9.1 — Trace propagation and unwinding
 
-**Estimated time:** 20 minutes  
-**Submit:** The exact output order and the final value of `copies`.
+*Suggested time: 20 minutes*  
+**Your answer should include:** The exact output order and the final value of `copies`.
 
 ```cpp
 class Trace {
@@ -421,33 +458,57 @@ int main() {
 
 Predict the complete output before compiling. Explain stack unwinding.
 
-### Task 9.2 — Preserve object state
+### Question 9.2 — Preserve object state
 
-**Estimated time:** 20 minutes  
-**Submit:** A custom exception, the completed operation, and three tests.
+*Suggested time: 20 minutes*  
+**Your answer should include:** A custom exception, the completed operation, and three tests.
 
-A `BankAccount::withdraw(double amount)` operation must reject non-positive
-amounts and withdrawals larger than the balance. Define an exception class
-that records the attempted amount. Implement `withdraw` so a failed operation
-leaves the balance unchanged. Test a successful withdrawal and both failures.
-Catch exceptions by `const` reference.
+A `BankAccount::withdraw(double amount)` function must reject a non-positive
+amount and an amount greater than the current balance. Define a custom
+exception derived from `std::runtime_error`. It must also store the amount
+that caused the error.
+
+Implement `withdraw` so that the balance changes only after all checks have
+passed. Test a successful withdrawal, a non-positive amount, and an amount
+greater than the balance. Catch the exceptions by `const` reference and
+verify that each failed withdrawal leaves the original balance unchanged.
+
+### Question 9.3 — Order catch handlers correctly
+
+*Suggested time: 10 minutes*  
+**Your answer should include:** The corrected handlers and an explanation.
+
+```cpp
+try {
+    loadCatalogue();
+} catch (const std::exception& error) {
+    std::cout << "general error: " << error.what() << '\n';
+} catch (const std::out_of_range& error) {
+    std::cout << "invalid position: " << error.what() << '\n';
+}
+```
+
+Assume that `loadCatalogue` may throw `std::out_of_range`. Explain why the
+second handler cannot deal with that exception separately in the code above.
+Reorder the handlers so that the more specific case is handled first.
 
 ## Unit 10
 
-### Task 10.1 — Complete a function template
+### Question 10.1 — Complete a function template
 
-**Estimated time:** 15 minutes  
-**Submit:** The template and three calls.
+*Suggested time: 15 minutes*  
+**Your answer should include:** The template and three calls.
 
-Write a function template `larger` that returns a `const` reference to the
-larger of two values. Demonstrate it with `int`, `double`, and
-`std::string`. State the operation that a type must support for use with this
-template.
+Write a function template `larger` that receives two `const` references and
+returns a `const` reference to the larger value. Test it with named variables
+of types `int`, `double`, and `std::string`. Do not pass temporary objects
+in these tests. State which comparison operation a type must provide for use
+with this function.
 
-### Task 10.2 — Use a simple iterator
+### Question 10.2 — Use a simple iterator
 
-**Estimated time:** 25 minutes  
-**Submit:** Completed iterator operations and two searches.
+*Suggested time: 25 minutes*  
+**Your answer should include:** Completed iterator operations and two searches.
 
 The following iterator walks through a contiguous sequence:
 
@@ -473,16 +534,33 @@ print this array:
 int values[] = {3, 8, 11, 14, 19};
 ```
 
-Then use `std::find_if` to find the first even value with a named functor.
-Use `std::find_if` again to find the first value greater than a captured
-`limit` with a lambda. Do not add `std::iterator_traits` machinery.
+Write a small function template named `findFirst` that receives a beginning
+iterator, an ending iterator, and a predicate. It should return an iterator to
+the first matching value, or the ending iterator if there is no match.
+
+Use `findFirst` to find the first even value with a named functor. Use it
+again to find the first value greater than a captured `limit` with a lambda.
+This is a deliberately simple educational iterator; do not add
+`std::iterator_traits` machinery.
+
+### Question 10.3 — Complete a class template
+
+*Suggested time: 20 minutes*  
+**Your answer should include:** A complete class template and two tests.
+
+Write a class template named `Pair` that stores two values of the same type.
+Its constructor receives both values. Provide `getFirst`, `getSecond`, and
+`swapValues`. The two observer functions must be callable on a `const Pair`.
+
+Create and test a `Pair<int>` and a `Pair<std::string>`. Explain why the
+complete template definition belongs in the header file.
 
 ## Unit 11
 
-### Task 11.1 — Select an ownership model
+### Question 11.1 — Select an ownership model
 
-**Estimated time:** 15 minutes  
-**Submit:** One choice and justification for each scenario.
+*Suggested time: 15 minutes*  
+**Your answer should include:** One choice and justification for each scenario.
 
 Choose a direct object, `std::unique_ptr`, or `std::shared_ptr`:
 
@@ -495,10 +573,10 @@ Choose a direct object, `std::unique_ptr`, or `std::shared_ptr`:
 
 Explain the lifetime represented by every choice.
 
-### Task 11.2 — Trace move and shared ownership
+### Question 11.2 — Trace move and shared ownership
 
-**Estimated time:** 20 minutes  
-**Submit:** The owner and reference count after every numbered line.
+*Suggested time: 20 minutes*  
+**Your answer should include:** The owner and reference count after every numbered line.
 
 ```cpp
 auto first = std::make_unique<Song>("Blue");        // 1
@@ -509,16 +587,54 @@ auto sharedSecond = sharedFirst;                    // 4
 sharedFirst.reset();                                // 5
 ```
 
-For lines 1–2, state which pointer owns the song and which pointer is empty.
-For lines 3–5, state `use_count()` and whether the shared song is still alive.
-Explain why copying the first smart pointer is forbidden but moving it is valid.
+After lines 1 and 2, state whether `first` and `second` are empty and identify
+the owner of `"Blue"`. After each of lines 3, 4, and 5, give the reference
+count for `"Gold"` and state whether that object is still alive. Explain why
+a `unique_ptr` cannot be copied but can be moved.
+
+### Question 11.3 — Implement exclusive ownership
+
+*Suggested time: 30 minutes*  
+**Your answer should include:** The completed class and three tests.
+
+The class below is a small educational version of `unique_ptr`. It is not a
+replacement for the standard-library class.
+
+```cpp
+template<typename T>
+class UniquePointer {
+private:
+    T* pointer;
+
+public:
+    explicit UniquePointer(T* pointer = nullptr) : pointer(pointer) {}
+
+    UniquePointer(const UniquePointer&) = delete;
+    UniquePointer& operator=(const UniquePointer&) = delete;
+
+    UniquePointer(UniquePointer&& other) noexcept;
+    UniquePointer& operator=(UniquePointer&& other) noexcept;
+    ~UniquePointer();
+
+    T& operator*() const;
+    T* operator->() const;
+    T* get() const;
+};
+```
+
+Implement the move constructor, move-assignment operator, destructor, and
+access operations. After a move, the source pointer must be empty. Moving onto
+an existing `UniquePointer` must first release the object it currently owns.
+
+Test destruction, move construction, and move assignment. Explain briefly why
+the copy operations are deleted.
 
 ## Unit 12
 
-### Task 12.1 — Choose a standard container
+### Question 12.1 — Choose a standard container
 
-**Estimated time:** 20 minutes  
-**Submit:** A container choice and justification for each requirement.
+*Suggested time: 20 minutes*  
+**Your answer should include:** A container choice and justification for each requirement.
 
 Choose among `std::vector`, `std::list`, `std::set`, and `std::map`:
 
@@ -531,10 +647,10 @@ Choose among `std::vector`, `std::list`, `std::set`, and `std::map`:
 Justify each answer using access, lookup, ordering, uniqueness, iterator
 behavior, or modification cost as relevant.
 
-### Task 12.2 — Apply algorithms and callables
+### Question 12.2 — Apply algorithms and callables
 
-**Estimated time:** 25 minutes  
-**Submit:** Four algorithm calls; do not write manual loops.
+*Suggested time: 25 minutes*  
+**Your answer should include:** Four algorithm calls; do not write manual loops.
 
 ```cpp
 struct Product {
@@ -550,7 +666,8 @@ std::vector<Product> products = {
 };
 ```
 
-Use standard algorithms and suitable lambdas to:
+Write four independent statements using standard algorithms and suitable
+lambdas. Do not replace an algorithm with a handwritten loop.
 
 1. sort by increasing price;
 2. find the first product whose name is `"Pen"`;
@@ -559,15 +676,17 @@ Use standard algorithms and suitable lambdas to:
 
 ## Unit 13
 
-### Task 13.1 — Integrated media catalogue
+### Question 13.1 — Integrated media catalogue
 
-**Estimated time:** 60 minutes  
-**Submit:** A UML sketch, essential class declarations, implementation of the
+*Suggested time: 60 minutes*  
+**Your answer should include:** A UML sketch, essential class declarations, implementation of the
 specified operation, and tests.
 
-Design a catalogue that owns songs and podcast episodes through one abstract
-`MediaItem` interface. Every item has a unique integer identifier and a
-title. The catalogue must:
+Design a small media catalogue. The catalogue stores songs and podcast
+episodes through a common abstract `MediaItem` interface. Every media item has
+a title and a unique integer identifier.
+
+Your design must:
 
 - own items without manual `delete`;
 - support runtime-polymorphic printing;
@@ -576,16 +695,19 @@ title. The catalogue must:
 - print only items accepted by a caller-provided predicate;
 - transfer ownership of a newly created item into the catalogue.
 
-Choose appropriate smart pointers and STL containers. Implement the operation
-that adds an item, including its failure behavior. Provide tests for successful
-insertion, duplicate rejection, polymorphic printing, and correct ownership
-transfer. State the requirements imposed on the predicate.
+Begin with a small UML diagram and the essential class declarations. Choose a
+smart pointer and an STL container, and justify both choices. Then implement
+the catalogue operation that adds an item, including duplicate detection.
+
+Finally, provide tests for successful insertion, duplicate rejection,
+polymorphic printing, and ownership transfer. State what the caller's predicate
+must be able to accept and return.
 
 ## How to use this bank
 
-1. Select the unit you want to review.
-2. Work within the estimated time without consulting the lecture notes.
-3. Compile and test code only after recording your initial answer.
-4. Revisit the corresponding unit and project when your result is incomplete.
-5. Record the mistake and the principle that corrects it.
-6. Attempt the same task again later without looking at your first solution.
+1. Choose one unit rather than trying to complete the entire bank at once.
+2. Work without the lecture notes for the suggested time.
+3. Write down tracing predictions before compiling.
+4. Compile and test every programming answer.
+5. If your answer is incomplete, return to the corresponding unit and project.
+6. Write down what went wrong, then try the question again on another day.
