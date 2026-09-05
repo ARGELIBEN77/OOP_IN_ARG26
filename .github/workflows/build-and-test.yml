@@ -1,0 +1,31 @@
+name: Build and test learning projects
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - Song_Class_Fundamentals
+          - Product_Catalog_and_Shopping_Cart
+          - Playlist_Rule_of_Three_and_Operators
+          - Inheritance_Polymorphism_Media_Library
+          - Exception_Handling_Music_Store
+          - Generic_Sorted_Catalog_Project
+          - Generic_Favorites_Linked_List
+          - Smart_Pointers_Media_Ownership
+          - Musicians_and_Instruments_Smart_Pointers
+
+    name: ${{ matrix.project }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Compile and run tests
+        run: make -C "${{ matrix.project }}" test
+

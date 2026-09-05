@@ -36,3 +36,12 @@ and connects each unit with its related repository projects.
 
 Each project is independent and has its own source files, build instructions,
 and exercises.
+
+## Additional course resources
+
+- [Course bibliography and unit mapping](REFERENCES.md)
+- [Instructor materials](Instructor_Materials/README.md)
+- [Unit 13 practice examination](Units/Unit_13/PRACTICE_EXAM.md)
+
+Every push and pull request runs the project test suites through GitHub
+Actions.

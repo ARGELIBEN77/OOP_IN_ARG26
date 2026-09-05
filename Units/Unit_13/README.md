@@ -46,3 +46,7 @@ After completing this unit, learners should be able to:
 
 - [Course-unit index](../README.md)
 - [Course projects](../../README.md#available-projects)
+- [Practice examination — 180 minutes](PRACTICE_EXAM.md)
+
+The worked solutions and marking guide are stored separately in
+[`Instructor_Materials/Unit_13`](../../Instructor_Materials/Unit_13/).
