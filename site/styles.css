@@ -1,13 +1,24 @@
 :root {
-  --ink: #132238;
-  --muted: #5b6b7e;
-  --paper: #f5f8fb;
-  --surface: #ffffff;
-  --line: #dce4ec;
-  --navy: #102a43;
-  --teal: #087f8c;
-  --teal-dark: #08646e;
-  --code: #d9f5f2;
+  /*
+   * SITE COLOURS
+   * Change the values in this block to recolour the whole site.
+   */
+  --primary: #102a43;        /* navigation, headings, code blocks */
+  --primary-middle: #153f59; /* middle of the home-page gradient */
+  --primary-end: #0a5963;    /* end of the home-page gradient */
+  --accent: #087f8c;         /* buttons, labels, and links */
+  --accent-hover: #08646e;   /* buttons and links on hover */
+  --accent-bright: #59d2d9;  /* braces and small hero highlights */
+
+  --text: #132238;
+  --text-soft: #5b6b7e;
+  --background: #f5f8fb;
+  --card: #ffffff;
+  --border: #dce4ec;
+  --highlight: #d9f5f2;
+  --navigation-text: #dce8f2;
+  --hero-text: #d7e8ef;
+  --code-text: #e7f4f6;
   --shadow: 0 12px 35px rgba(16, 42, 67, 0.09);
 }
 
@@ -17,8 +28,8 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  color: var(--ink);
-  background: var(--paper);
+  color: var(--text);
+  background: var(--background);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   font-size: 16px;
@@ -32,7 +43,7 @@ a { color: inherit; }
   top: 0;
   z-index: 10;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(16, 42, 67, 0.97);
+  background: var(--primary);
   color: white;
 }
 
@@ -53,8 +64,6 @@ a { color: inherit; }
   white-space: nowrap;
 }
 
-.brand span { color: #59d2d9; }
-
 .navlinks {
   display: flex;
   flex-wrap: wrap;
@@ -65,7 +74,7 @@ a { color: inherit; }
 .navlinks a {
   padding: 8px 11px;
   border-radius: 7px;
-  color: #dce8f2;
+  color: var(--navigation-text);
   font-size: 0.91rem;
   text-decoration: none;
 }
@@ -81,7 +90,7 @@ a { color: inherit; }
   color: white;
   background:
     radial-gradient(circle at 84% 20%, rgba(89, 210, 217, 0.2), transparent 28%),
-    linear-gradient(135deg, #102a43 0%, #153f59 63%, #0a5963 100%);
+    linear-gradient(135deg, var(--primary) 0%, var(--primary-middle) 63%, var(--primary-end) 100%);
 }
 
 .hero-inner {
@@ -96,7 +105,7 @@ a { color: inherit; }
 
 .eyebrow {
   margin: 0 0 10px;
-  color: #78e1e4;
+  color: var(--accent-bright);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -115,7 +124,7 @@ h1 {
 .hero p:not(.eyebrow) {
   max-width: 680px;
   margin: 22px 0 0;
-  color: #d7e8ef;
+  color: var(--hero-text);
   font-size: 1.12rem;
 }
 
@@ -132,7 +141,7 @@ h1 {
   font-weight: 800;
 }
 
-.code-mark span { color: #59d2d9; }
+.code-mark span { color: var(--accent-bright); }
 
 .actions {
   margin-top: 30px;
@@ -147,9 +156,9 @@ h1 {
   justify-content: center;
   min-height: 46px;
   padding: 10px 17px;
-  border: 1px solid var(--teal);
+  border: 1px solid var(--accent);
   border-radius: 9px;
-  background: var(--teal);
+  background: var(--accent);
   color: white;
   font-weight: 750;
   text-decoration: none;
@@ -158,14 +167,14 @@ h1 {
 
 .button:hover,
 .button:focus-visible {
-  background: var(--teal-dark);
+  background: var(--accent-hover);
   transform: translateY(-1px);
 }
 
 .button.secondary {
-  border-color: var(--line);
-  background: var(--surface);
-  color: var(--ink);
+  border-color: var(--border);
+  background: var(--card);
+  color: var(--text);
 }
 
 .hero .button.secondary {
@@ -186,13 +195,13 @@ main { padding: 60px 0 80px; }
 .page-head { padding: 58px 0 6px; }
 
 .page-head h1 {
-  color: var(--navy);
+  color: var(--primary);
   font-size: clamp(2.2rem, 5vw, 3.8rem);
 }
 
 .page-head p {
   max-width: 720px;
-  color: var(--muted);
+  color: var(--text-soft);
   font-size: 1.08rem;
 }
 
@@ -208,12 +217,12 @@ main { padding: 60px 0 80px; }
 
 .section-head h2 {
   margin: 0;
-  color: var(--navy);
+  color: var(--primary);
   font-size: clamp(1.55rem, 3vw, 2.15rem);
   letter-spacing: -0.025em;
 }
 
-.section-head p { margin: 0; color: var(--muted); }
+.section-head p { margin: 0; color: var(--text-soft); }
 
 .grid {
   display: grid;
@@ -228,14 +237,14 @@ main { padding: 60px 0 80px; }
   flex-direction: column;
   min-height: 100%;
   padding: 23px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 15px;
-  background: var(--surface);
+  background: var(--card);
   box-shadow: var(--shadow);
 }
 
 .card-number {
-  color: var(--teal);
+  color: var(--accent);
   font-family: "Cascadia Code", Consolas, monospace;
   font-size: 0.82rem;
   font-weight: 800;
@@ -244,11 +253,11 @@ main { padding: 60px 0 80px; }
 }
 
 .card h2,
-.card h3 { margin: 9px 0 8px; color: var(--navy); }
+.card h3 { margin: 9px 0 8px; color: var(--primary); }
 
 .card h3 { font-size: 1.15rem; }
 
-.card p { margin: 0 0 17px; color: var(--muted); }
+.card p { margin: 0 0 17px; color: var(--text-soft); }
 
 .card-links {
   margin-top: auto;
@@ -258,7 +267,7 @@ main { padding: 60px 0 80px; }
 }
 
 .card-links a {
-  color: var(--teal-dark);
+  color: var(--accent-hover);
   font-size: 0.91rem;
   font-weight: 750;
   text-decoration: none;
@@ -278,40 +287,40 @@ main { padding: 60px 0 80px; }
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 15px;
-  background: var(--line);
+  background: var(--border);
 }
 
 .step { padding: 24px; background: white; }
-.step strong { display: block; color: var(--navy); }
-.step span { color: var(--muted); font-size: 0.93rem; }
+.step strong { display: block; color: var(--primary); }
+.step span { color: var(--text-soft); font-size: 0.93rem; }
 
 .callout {
   padding: 25px 28px;
-  border-left: 5px solid var(--teal);
+  border-left: 5px solid var(--accent);
   border-radius: 4px 14px 14px 4px;
-  background: var(--code);
+  background: var(--highlight);
 }
 
-.callout h2, .callout h3 { margin-top: 0; color: var(--navy); }
+.callout h2, .callout h3 { margin-top: 0; color: var(--primary); }
 .callout p:last-child { margin-bottom: 0; }
 
 pre {
   overflow-x: auto;
   padding: 20px;
   border-radius: 12px;
-  background: #102a43;
-  color: #e7f4f6;
+  background: var(--primary);
+  color: var(--code-text);
   font-size: 0.92rem;
 }
 
 code { font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace; }
 
 footer {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
   background: white;
-  color: var(--muted);
+  color: var(--text-soft);
 }
 
 .footer-inner {
@@ -322,7 +331,7 @@ footer {
   font-size: 0.9rem;
 }
 
-footer a { color: var(--teal-dark); }
+footer a { color: var(--accent-hover); }
 
 @media (max-width: 850px) {
   .hero-inner { grid-template-columns: 1fr; padding-top: 60px; }
