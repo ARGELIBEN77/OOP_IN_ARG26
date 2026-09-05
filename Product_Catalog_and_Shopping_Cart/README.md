@@ -61,8 +61,9 @@ The pointer returned by `findByCode` is non-owning. Client code must not delete
 it. It should also be used before adding more products to the catalog, because
 growing the catalog vector may invalidate pointers to its elements.
 
-This project intentionally excludes inheritance, operator overloading, manual
-dynamic memory, and smart pointers. Those concepts appear in later projects.
+The central learning question is how several ordinary classes collaborate:
+which object owns each value, which object performs each operation, and what
+information crosses each class interface.
 
 ## Project structure
 

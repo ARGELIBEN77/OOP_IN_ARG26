@@ -48,5 +48,9 @@ After completing this unit, learners should be able to:
 - [Course projects](../../README.md#available-projects)
 - [Practice examination — 180 minutes](PRACTICE_EXAM.md)
 
-The worked solutions and marking guide are stored separately in
-[`Instructor_Materials/Unit_13`](../../Instructor_Materials/Unit_13/).
+## Check your work
+
+Complete the practice examination under timed conditions before opening the
+[solutions and marking guide](../../Solutions/Unit_13/PRACTICE_EXAM_SOLUTIONS.md).
+Compare the reasoning as well as the final code, mark the places where your
+approach differed, and then solve the difficult parts again without looking.

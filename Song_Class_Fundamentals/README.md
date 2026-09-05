@@ -47,16 +47,12 @@ make run
 5. `tests/test_song.cpp` — inspect the class's expected behavior.
 6. `EXERCISES.md` — complete the guided activities.
 
-## Important scope decision
+## Learning focus
 
-This project intentionally excludes inheritance, operator overloading,
-templates, smart pointers, and manual dynamic memory. The goal is to establish
-a clear mental model of one class and its objects before adding relationships
-between classes.
-
-Constructor requirements are expressed with assertions because exception
-handling belongs to a later unit. `setRating` demonstrates validation without
-requiring `try` and `catch`.
+Use this project to build a clear mental model of one class and its objects.
+Pay particular attention to the boundary between private state and the public
+interface. Constructor assertions express the object's requirements, while
+`setRating` demonstrates controlled modification of existing state.
 
 ## Project structure
 

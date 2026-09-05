@@ -7,6 +7,12 @@ hands-on projects. The course is designed for learners who have completed one
 procedural programming course in C++ and are beginning object-oriented
 programming.
 
+## Start here
+
+If this is your first visit, open the [Student Guide](STUDENT_GUIDE.md). It
+explains how to move from a unit's lecture notes to its demonstration,
+tests, and exercises.
+
 ## Course units
 
 The [Units directory](Units/README.md) organizes the 13-unit learning sequence
@@ -40,8 +46,9 @@ and exercises.
 ## Additional course resources
 
 - [Course bibliography and unit mapping](REFERENCES.md)
-- [Instructor materials](Instructor_Materials/README.md)
 - [Unit 13 practice examination](Units/Unit_13/PRACTICE_EXAM.md)
+- [Solutions for self-checking](Solutions/README.md) — use these after making
+  your own serious attempt
 
 Every push and pull request runs the project test suites through GitHub
 Actions.
