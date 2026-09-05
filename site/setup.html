@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Setup instructions for the C++ OOP course repository."><title>Setup · C++ OOP</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="topbar"><nav class="nav" aria-label="Main navigation"><a class="brand" href="index.html"><span>C++</span> OOP</a><div class="navlinks"><a href="index.html">Home</a><a href="units.html">Units</a><a href="projects.html">Projects</a><a href="practice.html">Practice</a><a class="active" href="setup.html">Setup</a><a href="references.html">References</a></div></nav></header>
+  <header class="page-head"><p class="eyebrow">Work with the code</p><h1>Repository setup</h1><p>You need Git, Make, and a compiler that supports C++17. The same commands work in Linux, macOS, and WSL.</p></header>
+  <main>
+    <section class="section"><div class="section-head"><h2>Get the course files</h2></div><pre><code>git clone https://github.com/ARGELIBEN77/OOP_IN_ARG26.git
+cd OOP_IN_ARG26</code></pre><p>You may also use GitHub’s <strong>Code → Download ZIP</strong> option if you do not yet use Git.</p></section>
+    <section class="section"><div class="section-head"><h2>Build one project</h2></div><pre><code>cd Song_Class_Fundamentals
+make run
+make test</code></pre><p>Use the exact commands in the project README because some projects provide additional demonstrations.</p></section>
+    <section class="section"><div class="section-head"><h2>A useful workflow</h2></div><div class="steps">
+      <div class="step"><strong>Predict</strong><span>Write down what you expect before compiling.</span></div>
+      <div class="step"><strong>Run</strong><span>Compare the real output with your reasoning.</span></div>
+      <div class="step"><strong>Change</strong><span>Make one focused modification.</span></div>
+      <div class="step"><strong>Test</strong><span>Run the test suite after every change.</span></div>
+    </div></section>
+    <section class="section callout"><h2>When compilation fails</h2><p>Start with the first error message. Confirm that you are inside the correct project directory and record the command, compiler version, and complete first error if you need help.</p></section>
+    <section class="section"><div class="actions"><a class="button" href="https://github.com/ARGELIBEN77/OOP_IN_ARG26/blob/main/STUDENT_GUIDE.md">Open the complete student guide</a><a class="button secondary" href="https://github.com/ARGELIBEN77/OOP_IN_ARG26">Open repository</a></div></section>
+  </main>
+  <footer><div class="footer-inner"><span>C++17 · Git · Make</span><a href="projects.html">Choose a project</a></div></footer>
+</body></html>

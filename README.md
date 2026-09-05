@@ -1,5 +1,7 @@
 # OOP in C++ — Course Repository
 
+**Student website:** [argeliben77.github.io/OOP_IN_ARG26](https://argeliben77.github.io/OOP_IN_ARG26/)
+
 This educational repository supports the C++ Object-Oriented Programming
 course at Ramat Gan Academic College, developed by Dr. Elina Benenson
 Opalinsky. It combines a 13-unit learning sequence with independent,
@@ -49,6 +51,7 @@ and exercises.
 - [Unit 13 practice examination](Units/Unit_13/PRACTICE_EXAM.md)
 - [Solutions for self-checking](Solutions/README.md) — use these after making
   your own serious attempt
+- [Project assessment rubric](PROJECT_RUBRIC.md)
 
 Every push and pull request runs the project test suites through GitHub
 Actions.
