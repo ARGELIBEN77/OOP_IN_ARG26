@@ -46,3 +46,8 @@ After completing this unit, learners should be able to:
 - [Generic Sorted Catalog](../../Generic_Sorted_Catalog_Project/README.md)
 - [Generic Favorites Linked List](../../Generic_Favorites_Linked_List/README.md)
 - [Smart Pointers and Media Ownership](../../Smart_Pointers_Media_Ownership/README.md)
+
+## Assessment
+
+- [Unit 12 exercises](EXERCISES.md)
+- [Self-check guidance](../../Solutions/Unit_12/EXERCISES_GUIDANCE.md)

@@ -13,6 +13,7 @@ exercise or practice assessment.
 
 ## Available solutions
 
+- [Unit 12 STL exercise guidance](Unit_12/EXERCISES_GUIDANCE.md)
 - [Unit 13 practice examination](Unit_13/PRACTICE_EXAM_SOLUTIONS.md)
 
 More solution sets can be added using the same question numbers as the student

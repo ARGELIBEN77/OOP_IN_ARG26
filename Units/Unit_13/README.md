@@ -47,6 +47,8 @@ After completing this unit, learners should be able to:
 - [Course-unit index](../README.md)
 - [Course projects](../../README.md#available-projects)
 - [Practice examination — 180 minutes](PRACTICE_EXAM.md)
+- [Complete-course review bank](REVIEW_QUESTION_BANK.md)
+- [Assessment coverage matrix](ASSESSMENT_COVERAGE.md)
 
 ## Check your work
 
