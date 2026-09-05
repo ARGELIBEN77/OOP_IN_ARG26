@@ -49,8 +49,6 @@ After completing this unit, learners should be able to:
 - [Practice examination — 180 minutes](PRACTICE_EXAM.md)
 - [Practice examination 2 — 180 minutes](PRACTICE_EXAM_2.md)
 - [Complete-course review bank](REVIEW_QUESTION_BANK.md)
-- [Assessment coverage matrix](ASSESSMENT_COVERAGE.md)
-- [Exam timing pilot protocol](EXAM_PILOT_PROTOCOL.md)
 
 ## Check your work
 
