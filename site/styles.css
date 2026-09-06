@@ -11,12 +11,12 @@
   --accent-bright: #d6b8ff;  /* braces and small hero highlights */
 
   --text: #132238;
-  --text-soft: #5b6b7e;
+  --text-soft: #463a53;
   --background: #f8f6fc;
   --card: #ffffff;
   --border: #e5dcef;
   --highlight: #eee5ff;
-  --navigation-text: #594b68;
+  --navigation-text: #493b57;
   --hero-text: #f2eaff;
   --code-text: #f6f0ff;
   --shadow: 0 12px 35px rgba(47, 17, 79, 0.1);
@@ -102,7 +102,8 @@ a { color: inherit; }
   padding: 8px 11px;
   border-radius: 7px;
   color: var(--navigation-text);
-  font-size: 0.91rem;
+  font-size: 0.94rem;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -153,7 +154,8 @@ h1 {
   max-width: 680px;
   margin: 16px 0 0;
   color: var(--text-soft);
-  font-size: 1rem;
+  font-size: 1.03rem;
+  font-weight: 500;
 }
 
 .code-mark {
@@ -250,6 +252,7 @@ main { padding: 48px 0 72px; }
   max-width: 720px;
   color: var(--text-soft);
   font-size: 1.08rem;
+  font-weight: 500;
 }
 
 .section + .section { margin-top: 62px; }
@@ -269,7 +272,7 @@ main { padding: 48px 0 72px; }
   letter-spacing: -0.025em;
 }
 
-.section-head p { margin: 0; color: var(--text-soft); }
+.section-head p { margin: 0; color: var(--text-soft); font-weight: 500; }
 
 .grid {
   display: grid;
@@ -296,8 +299,9 @@ main { padding: 48px 0 72px; }
 
 .course-areas .card p {
   margin-bottom: 10px;
-  font-size: 0.9rem;
-  line-height: 1.48;
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .card {
@@ -325,7 +329,7 @@ main { padding: 48px 0 72px; }
 
 .card h3 { font-size: 1.15rem; }
 
-.card p { margin: 0 0 17px; color: var(--text-soft); }
+.card p { margin: 0 0 17px; color: var(--text-soft); font-weight: 500; }
 
 .card-links {
   margin-top: auto;
@@ -405,8 +409,9 @@ main { padding: 48px 0 72px; }
 }
 
 .home-main .step div > span {
-  font-size: 0.84rem;
-  line-height: 1.35;
+  font-size: 0.89rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .step strong {
@@ -454,7 +459,8 @@ footer {
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  font-weight: 500;
 }
 
 footer a { color: var(--accent-hover); }
