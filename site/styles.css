@@ -261,6 +261,25 @@ main { padding: 48px 0 72px; }
 
 .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
+.course-areas {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.course-areas .card {
+  min-height: 245px;
+  padding: 30px 25px;
+}
+
+.course-areas .card h3 {
+  margin-top: 14px;
+  font-size: 1.28rem;
+}
+
+.course-areas .card p {
+  line-height: 1.7;
+}
+
 .card {
   display: flex;
   flex-direction: column;
