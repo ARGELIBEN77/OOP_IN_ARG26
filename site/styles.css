@@ -49,7 +49,7 @@ a { color: inherit; }
 
 .nav {
   width: min(1180px, calc(100% - 32px));
-  min-height: 66px;
+  min-height: 58px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -123,7 +123,7 @@ a { color: inherit; }
 .hero-inner {
   width: min(1100px, calc(100% - 32px));
   margin: auto;
-  padding: 38px 0;
+  padding: 28px 0;
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
   gap: 34px;
@@ -152,7 +152,7 @@ h1 {
   max-width: 680px;
   margin: 16px 0 0;
   color: var(--hero-text);
-  font-size: 1.12rem;
+  font-size: 1rem;
 }
 
 .code-mark {
@@ -180,6 +180,12 @@ h1 {
 }
 
 .hero .actions { margin-top: 22px; }
+
+.hero .button {
+  min-height: 40px;
+  padding: 8px 15px;
+  font-size: 0.92rem;
+}
 
 .button {
   display: inline-flex;
@@ -222,6 +228,16 @@ main,
 }
 
 main { padding: 48px 0 72px; }
+
+.home-main { padding: 25px 0 28px; }
+
+.home-main .section + .section { margin-top: 28px; }
+
+.home-main .section-head { margin-bottom: 13px; }
+
+.home-main .section-head h2 {
+  font-size: 1.42rem;
+}
 
 .page-head { padding: 46px 0 4px; }
 
@@ -269,17 +285,19 @@ main { padding: 48px 0 72px; }
 }
 
 .course-areas .card {
-  min-height: 245px;
-  padding: 30px 25px;
+  min-height: 168px;
+  padding: 20px 21px;
 }
 
 .course-areas .card h3 {
-  margin-top: 14px;
-  font-size: 1.28rem;
+  margin-top: 8px;
+  font-size: 1.08rem;
 }
 
 .course-areas .card p {
-  line-height: 1.7;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  line-height: 1.48;
 }
 
 .card {
@@ -371,6 +389,26 @@ main { padding: 48px 0 72px; }
   font-weight: 800;
 }
 
+.home-main .step-number {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
+  border-width: 4px;
+  font-size: 0.78rem;
+}
+
+.home-main .steps::before { top: 15px; }
+
+.home-main .step strong {
+  margin-bottom: 2px;
+  font-size: 1rem;
+}
+
+.home-main .step div > span {
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
 .step strong {
   display: block;
   margin-bottom: 5px;
@@ -412,7 +450,7 @@ footer {
 }
 
 .footer-inner {
-  padding: 28px 0;
+  padding: 18px 0;
   display: flex;
   justify-content: space-between;
   gap: 18px;
