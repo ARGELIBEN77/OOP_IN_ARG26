@@ -314,16 +314,54 @@ main { padding: 48px 0 72px; }
 .steps {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  background: var(--border);
+  gap: 16px;
 }
 
-.step { padding: 24px; background: white; }
-.step strong { display: block; color: var(--primary); }
-.step span { color: var(--text-soft); font-size: 0.93rem; }
+.step {
+  position: relative;
+  min-height: 162px;
+  padding: 24px 22px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--highlight);
+  color: var(--accent-hover);
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.step strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--primary);
+  font-size: 1.08rem;
+}
+
+.step div > span {
+  color: var(--text-soft);
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
 
 .callout {
   padding: 25px 28px;
