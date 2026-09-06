@@ -114,10 +114,9 @@ a { color: inherit; }
 }
 
 .hero {
-  color: white;
-  background:
-    radial-gradient(circle at 84% 20%, rgba(214, 184, 255, 0.22), transparent 28%),
-    linear-gradient(135deg, var(--primary) 0%, var(--primary-middle) 63%, var(--primary-end) 100%);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  background: linear-gradient(180deg, var(--card) 0%, var(--background) 100%);
 }
 
 .hero-inner {
@@ -125,14 +124,14 @@ a { color: inherit; }
   margin: auto;
   padding: 28px 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
-  gap: 34px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 50px;
   align-items: center;
 }
 
 .eyebrow {
   margin: 0 0 10px;
-  color: var(--accent-bright);
+  color: var(--accent);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -148,29 +147,30 @@ h1 {
   letter-spacing: -0.055em;
 }
 
+.hero h1 { color: var(--primary); }
+
 .hero p:not(.eyebrow) {
   max-width: 680px;
   margin: 16px 0 0;
-  color: var(--hero-text);
+  color: var(--text-soft);
   font-size: 1rem;
 }
 
 .code-mark {
-  width: 190px;
-  min-height: 120px;
+  width: auto;
+  min-height: 0;
   justify-self: end;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.17);
-  border-radius: 18px;
-  background: rgba(6, 24, 39, 0.28);
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--accent);
   font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
-  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: 800;
+  letter-spacing: -0.08em;
 }
 
-.code-mark span { color: var(--accent-bright); }
+.code-mark span { color: var(--primary-middle); }
 
 .actions {
   margin-top: 30px;
@@ -215,9 +215,9 @@ h1 {
 }
 
 .hero .button.secondary {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
+  border-color: var(--border);
+  background: var(--card);
+  color: var(--primary);
 }
 
 main,
