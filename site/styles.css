@@ -140,7 +140,13 @@ h1 {
   font-size: clamp(3rem, 8vw, 6.5rem);
   font-weight: 800;
 }
-
+.code-mark {
+  width: 100%;
+  max-width: 300px;   /* rectangle width */
+  min-height: 180px;  /* rectangle height */
+  justify-self: end;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
 .code-mark span { color: var(--accent-bright); }
 
 .actions {
