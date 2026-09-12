@@ -1,16 +1,40 @@
-# Generic Favorites Linked List — Self-Check Guidance
+# Generic Favorites Linked List — Worked Self-Check
 
-- Exercises 1–4: verify that every value-dependent declaration uses `T` and
-  that template definitions remain visible in the header.
-- Exercises 5–8: draw links after every change; update both `first` and `last`
-  when the list becomes empty.
-- Exercises 9–12: deep-copy nodes in order, release old nodes exactly once, and
-  test copying and assignment with empty and non-empty lists.
-- Exercises 13–16: `end()` is the one-past-the-range state; postfix increment
-  returns the old iterator value; const traversal must not permit mutation.
-- Exercises 17–22: derive callable and iterator requirements from expressions,
-  compare functors with capturing lambdas, and test algorithms with more than
-  one `T`.
+## Template reasoning
 
-Draw the nodes and iterator position before debugging pointer code.
+Every declaration that depends on the stored type must use `T`, and template
+definitions must be visible where the compiler instantiates them. This is why
+the project keeps implementations in the header.
 
+## Link invariants
+
+After every operation, verify these facts:
+
+- an empty list has both `first` and `last` equal to `nullptr`;
+- a non-empty list has a reachable last node;
+- the last node's `next` is `nullptr`;
+- `size` equals the number of reachable nodes.
+
+Draw the links before changing them. Most list errors are easier to see in the
+drawing than in the debugger.
+
+## Deep copying
+
+Copy values into newly allocated nodes in their original order. Never copy only
+`first`, because that makes both lists share the same chain. Assignment must
+also release the previous chain exactly once and remain safe for self-assignment.
+
+## Iterator meaning
+
+An iterator stores the current node. Dereference accesses that node's value;
+prefix increment moves to `next`; `end()` is represented by `nullptr`.
+
+```cpp
+for (auto iterator = list.begin(); iterator != list.end(); ++iterator) {
+    use(*iterator);
+}
+```
+
+The generic algorithm should depend only on these iterator expressions—not on
+the list's node type. Test empty, one-node, and many-node lists with at least two
+stored types and both a functor and a capturing lambda.

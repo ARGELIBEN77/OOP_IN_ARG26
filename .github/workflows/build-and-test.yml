@@ -20,6 +20,7 @@ jobs:
           - Generic_Favorites_Linked_List
           - Smart_Pointers_Media_Ownership
           - Musicians_and_Instruments_Smart_Pointers
+          - STL_Media_Organizer
 
     name: ${{ matrix.project }}
     steps:
@@ -28,4 +29,3 @@ jobs:
 
       - name: Compile and run tests
         run: make -C "${{ matrix.project }}" test
-

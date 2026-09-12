@@ -1,16 +1,43 @@
-# Musicians and Instruments — Self-Check Guidance
+# Musicians and Instruments — Worked Self-Check
 
-- Exercises 1–10: a custom `UniquePointer` has one owner, deleted copy
-  operations, transfer by move, and an empty moved-from state.
-- Exercises 11–20: custom `SharedPointer` copies share a control block; each
-  release decreases the count and the final release destroys object and block.
-- Exercises 21–23: `release` gives the raw pointer to the caller; `reset`
-  releases the current object before taking another; `swap` exchanges state.
-- Exercises 24–28: test copy, move, assignment over an existing owner,
-  self-assignment, empty pointers, and final-owner destruction.
-- Exercises 29–30: use control-block identity and count only for observation;
-  compare behavior with the corresponding standard smart pointer.
+This project demonstrates the ownership machinery behind standard smart
+pointers. Use the standard library versions in application code.
 
-For every operation, draw both the managed object and the ownership state
-before and after the call.
+## Unique ownership
 
+`UniquePointer<T>` stores one raw pointer. Copy operations are deleted because
+copying would create two owners. Moving transfers the pointer and sets the
+source to `nullptr`.
+
+```cpp
+UniquePointer(UniquePointer&& other) noexcept : pointer(other.pointer) {
+    other.pointer = nullptr;
+}
+```
+
+Move assignment must first release the destination's current object, then take
+the source pointer, and leave the source empty. Check moving into an empty owner,
+moving over an existing owner, and self-move protection.
+
+## Shared ownership
+
+`SharedPointer<T>` stores a managed pointer and a pointer to a shared count.
+Copying shares both and increments the count. Releasing decrements it; the final
+owner deletes both the managed object and the count.
+
+For each operation, draw the owners, managed object, and control block. Two
+different control blocks for the same raw pointer are a serious error because
+each block will eventually delete it.
+
+## Operations to verify
+
+- `reset` releases the current ownership before accepting a replacement;
+- `swap` exchanges pointer and ownership state without copying the object;
+- `release` exists for unique ownership and transfers cleanup responsibility to
+  the caller;
+- empty pointers are safe to destroy and report a count of zero;
+- assignment handles its previous ownership before adopting new ownership.
+
+Compare every behavior with `std::unique_ptr` or `std::shared_ptr`. The learning
+implementation explains ownership; it is not a replacement for the complete,
+well-tested standard types.
